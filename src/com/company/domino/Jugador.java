@@ -6,7 +6,7 @@ public class Jugador {
 
     private int idJug;
     private int idEquip;
-    private ArrayList<Fixa> fitxesJug;
+    private ArrayList<Fitxa> fitxesJug;
 
     public Jugador (int idJug){
         this.idJug = idJug;
