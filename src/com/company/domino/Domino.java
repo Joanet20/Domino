@@ -1,10 +1,18 @@
 package com.company.domino;
 
+import java.util.ArrayList;
+
 public class Domino {
 
-    private int totalFitxes;
+    private int puntuacio;
+    private ArrayList<Fitxa> fitxesJoc;
 
-    public Domino (int totalFitxes){
-        this.totalFitxes = totalFitxes;
+    public Domino (int puntuacio){
+        this.puntuacio = puntuacio;
+        this.fitxesJoc = new ArrayList<>();
+    }
+
+    public void jugar (){
+
     }
 }
