@@ -15,4 +15,16 @@ public class Domino {
     public void jugar (){
 
     }
+
+    public void crearFitxes (ArrayList<Fitxa> fitxesJoc){
+        for (int i = 0; i < 6; i++){
+            for (int j = 0; j < 6; j++){
+                if (j <= i){
+                    Fitxa fitxaNova = new Fitxa(i, j);
+                    fitxesJoc.add(fitxaNova);
+                    this.fitxesJoc = fitxesJoc;
+                }
+            }
+        }
+    }
 }
