@@ -12,4 +12,8 @@ public class Parella {
         this.idParella = idParella;
         this.jugadorsParella = new Jugador[2];
     }
+
+    public Jugador[] getJugadorsParella() {
+        return jugadorsParella;
+    }
 }

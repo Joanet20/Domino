@@ -28,6 +28,10 @@ public class Domino {
         return puntuacio;
     }
 
+    public ArrayList<Fitxa> getFitxesJoc (){
+        return fitxesJoc;
+    }
+
     public void jugar (Domino newGame){
         Output.classeTriada(newGame);
         newGame.crearFitxes(fitxesJoc);
