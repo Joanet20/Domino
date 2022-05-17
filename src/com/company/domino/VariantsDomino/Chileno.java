@@ -3,7 +3,8 @@ package com.company.domino.VariantsDomino;
 import com.company.domino.Domino;
 
 public class Chileno extends Domino {
-    public Chileno(int totalFitxes) {
-        super(totalFitxes);
+    public Chileno() {
+        super(121);
+
     }
 }
