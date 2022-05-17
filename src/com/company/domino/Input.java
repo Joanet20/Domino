@@ -6,34 +6,34 @@ import java.util.Scanner;
 
 public class Input {
 
-    public static int triarModMex (){
+    public static ModalitatsMexica triarModMex (){
 
-        int opcio = 0;
+        ModalitatsMexica modMex = ModalitatsMexica.DEFECTE;
         Scanner sc = new Scanner(System.in);
 
         switch (sc.nextInt()){
             case 0:
-                opcio = 0;
+                modMex = ModalitatsMexica.INDIVIDUAL;
                 break;
 
             case 1:
-                opcio = 1;
+                modMex = ModalitatsMexica.PARELLES;
                 break;
 
             case 2:
-                opcio = 2;
+                modMex = ModalitatsMexica.EQUIPS;
                 break;
 
             default:
                 Output.opcioNoCorrecte();
                 break;
         }
-        return opcio;
+        return modMex;
     }
 
     public static Domino triarClasse (){
 
-        Domino newGame = new Domino(0);
+        Domino newGame = new Domino(0, "");
         Scanner sc = new Scanner(System.in);
 
         switch (sc.nextInt()){

@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class Equip {
 
     private int idEquip;
+    private ArrayList<Jugador> jugadorsEquip;
     private ArrayList<Fitxa> fitxesEquip;
 
     public Equip (int idEquip){
         this.idEquip = idEquip;
+        this.jugadorsEquip = new ArrayList<>();
     }
 }

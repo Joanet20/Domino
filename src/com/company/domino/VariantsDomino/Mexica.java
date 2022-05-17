@@ -5,15 +5,17 @@ import com.company.domino.Input;
 
 public class Mexica extends Domino {
 
-
-
     public Mexica() {
-        super(200);
+        super(200, "Mexicà");
     }
 
     @Override
-    public void jugar() {
-        super.jugar();
+    public void jugar(Domino newGame) {
+        super.jugar(newGame);
 
+        switch (Input.triarModMex()){
+            case INDIVIDUAL:
+
+        }
     }
 }

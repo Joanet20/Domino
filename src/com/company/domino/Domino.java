@@ -5,20 +5,32 @@ import java.util.ArrayList;
 public class Domino {
 
     private int puntuacio;
+    private String name;
     private ArrayList<Fitxa> fitxesJoc;
 
-    public Domino (int puntuacio){
+    public Domino (int puntuacio, String name){
         this.puntuacio = puntuacio;
         this.fitxesJoc = new ArrayList<>();
     }
 
     public void inici (){
         Output.triarClase();
-        Input.triarClasse();
+        Domino newGame = Input.triarClasse();
+
+        newGame.jugar(newGame);
     }
 
-    public void jugar (){
+    public String getName (){
+        return name;
+    }
 
+    public int getPuntuacio (){
+        return puntuacio;
+    }
+
+    public void jugar (Domino newGame){
+        Output.classeTriada(newGame);
+        newGame.crearFitxes(fitxesJoc);
     }
 
     public void crearFitxes (ArrayList<Fitxa> fitxesJoc){

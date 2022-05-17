@@ -4,6 +4,6 @@ import com.company.domino.Domino;
 
 public class Colombiano extends Domino {
     public Colombiano() {
-        super(100);
+        super(100, "Colombiano");
     }
 }

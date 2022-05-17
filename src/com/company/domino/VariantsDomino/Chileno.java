@@ -4,7 +4,7 @@ import com.company.domino.Domino;
 
 public class Chileno extends Domino {
     public Chileno() {
-        super(121);
+        super(121, "Chileno");
 
     }
 }

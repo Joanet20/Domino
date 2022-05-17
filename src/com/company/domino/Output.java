@@ -13,4 +13,8 @@ public class Output {
     public static void triarClase (){
         System.out.println("Tria una classe 0-Mexicà, 1-Chileno, 2-Colombiano, 3-Latino, 4-Venezolano");
     }
+
+    public static void classeTriada (Domino newGame){
+        System.out.println("Has triat el dominó " + newGame.getName());
+    }
 }
