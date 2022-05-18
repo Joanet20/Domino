@@ -65,25 +65,44 @@ public class Mexica extends Domino {
         }
     }
 
-    public void jugadorInicial (ArrayList<Fitxa> fitxas){
+    public int jugadorInicial (ArrayList<Fitxa> fitxas){
         int randJ1 = (int) Math.floor(Math.random()*fitxas.size());
         int randJ2 = (int) Math.floor(Math.random()*fitxas.size());
         int randJ3 = (int) Math.floor(Math.random()*fitxas.size());
         int randJ4 = (int) Math.floor(Math.random()*fitxas.size());
         int major = 0;
+        int index = 0;
 
         for (int i = 0; i < fitxas.size(); i++){
             if (i == randJ1 || i == randJ2 || i == randJ3 || i == randJ4){
                 if (fitxas.get(i).sumaCares(fitxas.get(i)) > major){
                     major = fitxas.get(i).sumaCares(fitxas.get(i));
+                    index++;
                 }
             }
         }
+        return index;
     }
 
     public void jocInd (Parella p1, Parella p2, Domino newGame){
-        while (p1.getPuntacioParella() < this.getPuntuacio() || p2.getPuntacioParella() < this.getPuntuacio()){
 
+        int tirades = 0;
+
+        while (p1.getPuntacioParella() < this.getPuntuacio() || p2.getPuntacioParella() < this.getPuntuacio()){
+            int torn = jugadorInicial(newGame.getFitxesJoc());
+
+            switch (torn){
+                case 1:
+                    for (int i = 0; i < p1.getJugadorsParella().length; i++){
+                        if (torn == p1.getJugadorsParella()[i].getIdJug()){
+                            if (tirades == 0){
+                                tirades ++;
+
+                            }
+
+                        }
+                    }
+            }
         }
     }
 }

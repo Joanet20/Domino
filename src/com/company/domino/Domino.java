@@ -65,4 +65,15 @@ public class Domino {
         }
     }
 
+    public void fitxesJugables (Tablero tablero, ArrayList<Fitxa> fitxesJug){
+        for (int i = 0; i < fitxesJug.size(); i++){
+            if (fitxesJug.get(i).getCara1() == tablero.getExtrem1() ||
+                    fitxesJug.get(i).getCara2() == tablero.getExtrem1() ||
+                    fitxesJug.get(i).getCara1() == tablero.getExtrem2() ||
+                    fitxesJug.get(i).getCara2() == tablero.getExtrem2()) {
+                fitxesJug.get(i).setJugable(true);
+            }
+        }
+    }
+
 }
