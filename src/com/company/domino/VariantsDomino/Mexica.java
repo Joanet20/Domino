@@ -5,10 +5,19 @@ import com.company.domino.Input;
 import com.company.domino.Jugador;
 import com.company.domino.Parella;
 
+import java.util.ArrayList;
+
 public class Mexica extends Domino {
+
+    private ArrayList<Jugador> jugadors;
 
     public Mexica() {
         super(200, "Mexicà");
+        this.jugadors = new ArrayList<>();
+    }
+
+    public ArrayList<Jugador> getJugadors (){
+        return jugadors;
     }
 
     @Override
@@ -28,7 +37,7 @@ public class Mexica extends Domino {
                     }
                 }
 
-
+                newGame.assignarFitxesJug(newGame.getFitxesJoc(), getJugadors());
         }
     }
 }

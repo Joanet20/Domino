@@ -9,5 +9,10 @@ public class Jugador {
 
     public Jugador (int idJug){
         this.idJug = idJug;
+        this.fitxesJug = new ArrayList<>(7);
+    }
+
+    public ArrayList<Fitxa> getFitxesJug (){
+        return fitxesJug;
     }
 }

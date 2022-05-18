@@ -48,4 +48,15 @@ public class Domino {
             }
         }
     }
+
+    public void assignarFitxesJug (ArrayList<Fitxa> fitxesJoc, ArrayList<Jugador> jugadors){
+        for (int i = 0; i < jugadors.size(); i++){
+            int count = 0;
+            while (count < jugadors.get(i).getFitxesJug().size()){
+                int rand = (int) Math.floor(Math.random()*fitxesJoc.size());
+                jugadors.get(i).getFitxesJug().add(fitxesJoc.get(rand));
+            }
+        }
+    }
+
 }
