@@ -21,4 +21,18 @@ public class Fitxa {
     public void setAssignada (boolean assignada){
         this.assignada = true;
     }
+
+    public int getCara1() {
+        return cara1;
+    }
+
+    public int getCara2() {
+        return cara2;
+    }
+
+    public int sumaCares (Fitxa fitxa){
+        cara1 = fitxa.getCara1();
+        cara2 = fitxa.getCara2();
+        return cara1 + cara2;
+    }
 }

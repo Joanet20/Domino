@@ -1,10 +1,8 @@
 package com.company.domino.VariantsDomino;
 
-import com.company.domino.Domino;
-import com.company.domino.Input;
-import com.company.domino.Jugador;
-import com.company.domino.Parella;
+import com.company.domino.*;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class Mexica extends Domino {
@@ -28,7 +26,6 @@ public class Mexica extends Domino {
             case INDIVIDUAL:
                 iniciMexicaInd(newGame);
 
-
         }
     }
 
@@ -42,7 +39,7 @@ public class Mexica extends Domino {
         Parella p2 = new Parella(2);
 
         for (int i = 0; i < 4; i++){
-            if (i < 4/2){
+            if (i == 0 || i == 2){
                 p1.getJugadorsParella()[i] = new Jugador(i+1);
                 this.jugadors.add(p1.getJugadorsParella()[i]);
             } else {
@@ -65,6 +62,28 @@ public class Mexica extends Domino {
             } else {
                 p2.getJugadorsParella()[i].setIdJug(1);
             }
+        }
+    }
+
+    public void jugadorInicial (ArrayList<Fitxa> fitxas){
+        int randJ1 = (int) Math.floor(Math.random()*fitxas.size());
+        int randJ2 = (int) Math.floor(Math.random()*fitxas.size());
+        int randJ3 = (int) Math.floor(Math.random()*fitxas.size());
+        int randJ4 = (int) Math.floor(Math.random()*fitxas.size());
+        int major = 0;
+
+        for (int i = 0; i < fitxas.size(); i++){
+            if (i == randJ1 || i == randJ2 || i == randJ3 || i == randJ4){
+                if (fitxas.get(i).sumaCares(fitxas.get(i)) > major){
+                    major = fitxas.get(i).sumaCares(fitxas.get(i));
+                }
+            }
+        }
+    }
+
+    public void jocInd (Parella p1, Parella p2, Domino newGame){
+        while (p1.getPuntacioParella() < this.getPuntuacio() || p2.getPuntacioParella() < this.getPuntuacio()){
+
         }
     }
 }

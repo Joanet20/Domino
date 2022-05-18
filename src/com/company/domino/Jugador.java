@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Jugador {
 
     private int idJug;
+    private int puntucaioJug;
     private ArrayList<Fitxa> fitxesJug;
 
     public Jugador (int idJug){

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Parella {
 
     private int idParella;
+    private int puntacioParella;
     private Jugador[] jugadorsParella;
     private ArrayList<Fitxa> fitxesParella;
 
@@ -15,5 +16,9 @@ public class Parella {
 
     public Jugador[] getJugadorsParella() {
         return jugadorsParella;
+    }
+
+    public int getPuntacioParella() {
+        return puntacioParella;
     }
 }
