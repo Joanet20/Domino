@@ -12,6 +12,14 @@ public class Jugador {
         this.fitxesJug = new ArrayList<>(7);
     }
 
+    public int getIdJug (){
+        return idJug;
+    }
+
+    public void setIdJug(int idJug) {
+        this.idJug = idJug;
+    }
+
     public ArrayList<Fitxa> getFitxesJug (){
         return fitxesJug;
     }
