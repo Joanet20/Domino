@@ -54,7 +54,13 @@ public class Domino {
             int count = 0;
             while (count < jugadors.get(i).getFitxesJug().size()){
                 int rand = (int) Math.floor(Math.random()*fitxesJoc.size());
-                jugadors.get(i).getFitxesJug().add(fitxesJoc.get(rand));
+
+                if (!fitxesJoc.get(rand).isAssignada()){
+                    jugadors.get(i).getFitxesJug().add(fitxesJoc.get(rand));
+                    count++;
+                    fitxesJoc.get(rand).setAssignada(true);
+                }
+
             }
         }
     }
