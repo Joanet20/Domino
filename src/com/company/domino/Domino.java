@@ -16,8 +16,9 @@ public class Domino {
     public void inici (){
         Output.triarClase();
         Domino newGame = Input.triarClasse();
+        Tablero tab = new Tablero();
 
-        newGame.jugar(newGame);
+        newGame.jugar(newGame, tab);
     }
 
     public String getName (){
@@ -32,7 +33,7 @@ public class Domino {
         return fitxesJoc;
     }
 
-    public void jugar (Domino newGame){
+    public void jugar (Domino newGame, Tablero tablero){
         Output.classeTriada(newGame);
         newGame.crearFitxes(fitxesJoc);
     }

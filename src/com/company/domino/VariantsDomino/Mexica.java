@@ -19,8 +19,8 @@ public class Mexica extends Domino {
     }
 
     @Override
-    public void jugar(Domino newGame) {
-        super.jugar(newGame);
+    public void jugar(Domino newGame, Tablero tablero) {
+        super.jugar(newGame, tablero);
 
         switch (Input.triarModMex()){
             case INDIVIDUAL:
@@ -84,7 +84,7 @@ public class Mexica extends Domino {
         return index;
     }
 
-    public void jocInd (Parella p1, Parella p2, Domino newGame){
+    public void jocInd (Parella p1, Parella p2, Domino newGame, Tablero tablero){
 
         int tirades = 0;
 
@@ -93,15 +93,56 @@ public class Mexica extends Domino {
 
             switch (torn){
                 case 1:
-                    for (int i = 0; i < p1.getJugadorsParella().length; i++){
-                        if (torn == p1.getJugadorsParella()[i].getIdJug()){
-                            if (tirades == 0){
-                                tirades ++;
+                    tornJugInd(p1, p2, torn, tirades, tablero);
+                    break;
 
-                            }
+                case 2:
+                    tornJugInd(p1, p2, torn, tirades, tablero);
+                    break;
 
-                        }
-                    }
+                case 3:
+                    tornJugInd(p1, p2, torn, tirades, tablero);
+                    break;
+
+                case 4:
+                    tornJugInd(p1, p2, torn, tirades, tablero);
+                    break;
+
+                default:
+                    Output.opcioNoCorrecte();
+            }
+        }
+    }
+
+
+    public void tornJugInd (Parella p1, Parella p2, int torn, int tirades, Tablero tablero){
+        for (int i = 0; i < p1.getJugadorsParella().length; i++){
+            Jugador jugActual = p1.getJugadorsParella()[i];
+            if (torn == jugActual.getIdJug()){
+                int indexFitxa = Input.triaFitxa(jugActual.getFitxesJug(), jugActual, tirades);
+
+                if (indexFitxa != 10){
+                    tablero.getFitxesTab().add(jugActual.getFitxesJug().get(indexFitxa));
+                    tirades ++;
+                    tablero.setExtrem1(jugActual.getFitxesJug().get(indexFitxa).getCara1());
+                    tablero.setExtrem2(jugActual.getFitxesJug().get(indexFitxa).getCara2());
+                } else {
+                    Output.pasarTorn(jugActual);
+                }
+            }
+
+            if (torn == p2.getJugadorsParella()[i].getIdJug()){
+                Jugador jugActual2 = p2.getJugadorsParella()[i];
+                int indexFitxa = Input.triaFitxa(jugActual2.getFitxesJug(), jugActual2, tirades);
+
+                if (indexFitxa != 10){
+                    tablero.getFitxesTab().add(jugActual2.getFitxesJug().get(indexFitxa));
+                    tirades ++;
+                    tablero.setExtrem1(jugActual2.getFitxesJug().get(indexFitxa).getCara1());
+                    tablero.setExtrem2(jugActual2.getFitxesJug().get(indexFitxa).getCara2());
+                } else {
+                    Output.pasarTorn(jugActual2);
+                }
             }
         }
     }

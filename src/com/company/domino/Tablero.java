@@ -23,4 +23,13 @@ public class Tablero {
     public int getExtrem2() {
         return extrem2;
     }
+
+    public void setExtrem1(int extrem1) {
+        this.extrem1 = extrem1;
+    }
+
+    public void setExtrem2(int extrem2) {
+        this.extrem2 = extrem2;
+    }
 }
+

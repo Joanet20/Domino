@@ -2,6 +2,7 @@ package com.company.domino;
 
 import com.company.domino.VariantsDomino.*;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Input {
@@ -62,5 +63,14 @@ public class Input {
                 break;
         }
         return newGame;
+    }
+
+    public static int triaFitxa (ArrayList<Fitxa> fitxesJug, Jugador jugador, int tirada){
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Tria una fitxa jugable");
+        Output.mostrarFitxesJugables(fitxesJug, jugador, tirada);
+
+        return sc.nextInt();
     }
 }

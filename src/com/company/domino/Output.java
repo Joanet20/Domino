@@ -20,7 +20,7 @@ public class Output {
         System.out.println("Has triat el dominó " + newGame.getName());
     }
 
-    public static void mostrarFitxesJug (ArrayList<Fitxa> fitxesJug, Jugador jugador, int tirada){
+    public static void mostrarFitxesJugables (ArrayList<Fitxa> fitxesJug, Jugador jugador, int tirada){
         for (Fitxa fitxa : fitxesJug){
             System.out.println("Torn del jugador " + jugador.getIdJug());
             if (tirada == 0){
@@ -32,7 +32,11 @@ public class Output {
                     System.err.println("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2());
                 }
             }
-
+            System.out.println("10-Pasar");
         }
+    }
+
+    public static void pasarTorn (Jugador jugador){
+        System.out.println("El jugador " + jugador.getIdJug() + " ha passat el seu torn");
     }
 }
