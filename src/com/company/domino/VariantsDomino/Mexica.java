@@ -90,27 +90,7 @@ public class Mexica extends Domino {
 
         while (p1.getPuntacioParella() < this.getPuntuacio() || p2.getPuntacioParella() < this.getPuntuacio()){
             int torn = jugadorInicial(newGame.getFitxesJoc());
-
-            switch (torn){
-                case 1:
-                    tornJugInd(p1, p2, torn, tirades, tablero);
-                    break;
-
-                case 2:
-                    tornJugInd(p1, p2, torn, tirades, tablero);
-                    break;
-
-                case 3:
-                    tornJugInd(p1, p2, torn, tirades, tablero);
-                    break;
-
-                case 4:
-                    tornJugInd(p1, p2, torn, tirades, tablero);
-                    break;
-
-                default:
-                    Output.opcioNoCorrecte();
-            }
+            tornJugInd(p1, p2, torn, tirades, tablero);
         }
     }
 
