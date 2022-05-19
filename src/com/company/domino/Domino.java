@@ -13,7 +13,7 @@ public class Domino {
         this.fitxesJoc = new ArrayList<>();
     }
 
-    public void inici (){
+    public static void inici (){
         Output.triarClase();
         Domino newGame = Input.triarClasse();
         Tablero tab = new Tablero();

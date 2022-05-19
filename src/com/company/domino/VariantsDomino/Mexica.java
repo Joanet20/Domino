@@ -30,11 +30,11 @@ public class Mexica extends Domino {
     }
 
     public void iniciMexicaInd (Domino newGame){
-        triarParellesInd();
+        Parella [] parellas = triarParellesInd();
         newGame.assignarFitxesJug(newGame.getFitxesJoc(), getJugadors());
     }
 
-    public void triarParellesInd (){
+    public Parella [] triarParellesInd (){
         Parella p1 = new Parella(1);
         Parella p2 = new Parella(2);
 
@@ -47,6 +47,8 @@ public class Mexica extends Domino {
                 this.jugadors.add(p2.getJugadorsParella()[i]);
             }
         }
+        Parella [] parelles = {p1, p2};
+        return parelles;
     }
 
     public void canviParellesInd (Parella p1, Parella p2){
