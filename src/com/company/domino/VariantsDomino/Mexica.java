@@ -24,14 +24,15 @@ public class Mexica extends Domino {
 
         switch (Input.triarModMex()){
             case INDIVIDUAL:
-                iniciMexicaInd(newGame);
+                iniciMexicaInd(newGame, tablero);
 
         }
     }
 
-    public void iniciMexicaInd (Domino newGame){
+    public void iniciMexicaInd (Domino newGame, Tablero tablero){
         Parella [] parellas = triarParellesInd();
         newGame.assignarFitxesJug(newGame.getFitxesJoc(), getJugadors());
+        jocInd(parellas[0], parellas[1], newGame, tablero);
     }
 
     public Parella [] triarParellesInd (){
