@@ -10,6 +10,7 @@ public class Domino {
 
     public Domino (int puntuacio, String name){
         this.puntuacio = puntuacio;
+        this.name = name;
         this.fitxesJoc = new ArrayList<>();
     }
 
@@ -34,7 +35,7 @@ public class Domino {
     }
 
     public void jugar (Domino newGame, Tablero tablero){
-        Output.classeTriada(newGame);
+        Output.classeTriada(newGame.getName());
         newGame.crearFitxes(fitxesJoc);
     }
 
