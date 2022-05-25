@@ -52,13 +52,13 @@ public class Domino {
     }
 
     public void assignarFitxesJug (ArrayList<Fitxa> fitxesJoc, ArrayList<Jugador> jugadors){
-        for (int i = 0; i < jugadors.size(); i++){
+        for (Jugador jug : jugadors){
             int count = 0;
-            while (count < jugadors.get(i).getFitxesJug().size()){
+            while (count < fitxesJoc.size()){
                 int rand = (int) Math.floor(Math.random()*fitxesJoc.size());
 
                 if (!fitxesJoc.get(rand).isAssignada()){
-                    jugadors.get(i).getFitxesJug().add(fitxesJoc.get(rand));
+                    jug.getFitxesJug().add(fitxesJoc.get(rand));
                     count++;
                     fitxesJoc.get(rand).setAssignada(true);
                 }
