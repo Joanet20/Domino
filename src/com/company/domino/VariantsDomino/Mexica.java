@@ -34,7 +34,7 @@ public class Mexica extends Domino {
 
     public void iniciMexicaInd (Domino newGame, Tablero tablero){
         Parella [] parellas = triarParellesInd();
-        newGame.assignarFitxesJug(newGame.getFitxesJoc(), getJugadors());
+        newGame.assignarFitxesJug(newGame.getFitxesJoc(), this.jugadors, 4);
         jocInd(parellas[0], parellas[1], newGame, tablero);
     }
 
