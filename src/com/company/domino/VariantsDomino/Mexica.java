@@ -22,9 +22,12 @@ public class Mexica extends Domino {
     public void jugar(Domino newGame, Tablero tablero) {
         super.jugar(newGame, tablero);
 
+        Output.triarModMex();
+
         switch (Input.triarModMex()){
             case INDIVIDUAL:
                 iniciMexicaInd(newGame, tablero);
+                break;
 
         }
     }
@@ -40,13 +43,16 @@ public class Mexica extends Domino {
         Parella p2 = new Parella(2);
 
         for (int i = 0; i < 4; i++){
-            if (i == 0 || i == 2){
-                p1.getJugadorsParella()[i] = new Jugador(i+1);
-                this.jugadors.add(p1.getJugadorsParella()[i]);
-            } else {
-                p2.getJugadorsParella()[i] = new Jugador(i+1);
-                this.jugadors.add(p2.getJugadorsParella()[i]);
+            for (int j = 0; j < 2; j++){
+                if (i == 0 || i == 2){
+                    p1.getJugadorsParella()[0] = new Jugador(i+1);
+                    this.jugadors.add(p1.getJugadorsParella()[j]);
+                } else {
+                    p2.getJugadorsParella()[1] = new Jugador(i+1);
+                    this.jugadors.add(p2.getJugadorsParella()[j]);
+                }
             }
+
         }
         Parella [] parelles = {p1, p2};
         return parelles;
