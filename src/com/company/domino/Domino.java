@@ -66,13 +66,15 @@ public class Domino {
         }
     }
 
-    public void fitxesJugables (Tablero tablero, ArrayList<Fitxa> fitxesJug){
-        for (int i = 0; i < fitxesJug.size(); i++){
-            if (fitxesJug.get(i).getCara1() == tablero.getExtrem1() ||
-                    fitxesJug.get(i).getCara2() == tablero.getExtrem1() ||
-                    fitxesJug.get(i).getCara1() == tablero.getExtrem2() ||
-                    fitxesJug.get(i).getCara2() == tablero.getExtrem2()) {
-                fitxesJug.get(i).setJugable(true);
+    public void fitxesJugables (Tablero tablero, Fitxa fitxa, int fitxesAMa){
+        for (int i = 0; i < fitxesAMa; i++){
+            if (fitxa.getCara1() == tablero.getExtrem1() ||
+                    fitxa.getCara2() == tablero.getExtrem1() ||
+                    fitxa.getCara1() == tablero.getExtrem2() ||
+                    fitxa.getCara2() == tablero.getExtrem2()) {
+                fitxa.setJugable(true);
+            } else {
+                fitxa.setJugable(false);
             }
         }
     }
