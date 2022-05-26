@@ -53,7 +53,7 @@ public class Domino {
 
     public void assignarFitxesJug (ArrayList<Fitxa> fitxesJoc, ArrayList<Jugador> jugadors, int fitxesPerJug){
         for (Jugador jug : jugadors){
-            /*int count = 0;
+            int count = 0;
             while (count < fitxesPerJug){
                 int rand = (int) Math.floor(Math.random()*fitxesJoc.size());
 
@@ -62,7 +62,7 @@ public class Domino {
                     fitxesJoc.get(rand).setAssignada(true);
                     count++;
                 }
-            }*/
+            }
         }
     }
 

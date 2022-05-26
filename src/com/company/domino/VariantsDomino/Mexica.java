@@ -50,10 +50,21 @@ public class Mexica extends Domino {
         }
 
         for (int i = 0; i < this.jugadors.size(); i++){
-            if (i == 0 || this.jugadors.size() % i == 0){
-                p1.getJugadorsParella()[0] = jugadors.get(i);
-            } else {
-                p2.getJugadorsParella()[0] = jugadors.get(i);
+            switch (i){
+                case 0:
+                    p1.getJugadorsParella()[0] = this.jugadors.get(i);
+                    break;
+
+                case 1:
+                    p2.getJugadorsParella()[0] = this.jugadors.get(i);
+                    break;
+
+                case 2:
+                    p1.getJugadorsParella()[1] = this.jugadors.get(i);
+                    break;
+
+                case 3:
+                    p2.getJugadorsParella()[1] = this.jugadors.get(i);
             }
         }
 
@@ -93,7 +104,7 @@ public class Mexica extends Domino {
                 }
             }
         }
-        return index;
+        return 2;
     }
 
     public void jocInd (Parella p1, Parella p2, Domino newGame, Tablero tablero){

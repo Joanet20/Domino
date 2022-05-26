@@ -21,10 +21,10 @@ public class Output {
     }
 
     public static void mostrarFitxesJugables (ArrayList<Fitxa> fitxesJug, Jugador jugador, int tirada){
+        System.out.println("Torn del jugador " + jugador.getIdJug());
         for (Fitxa fitxa : fitxesJug){
-            System.out.println("Torn del jugador " + jugador.getIdJug());
             if (tirada == 0){
-                System.out.print("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2());
+                System.out.print("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2() + " ");
             } else {
                 if (fitxa.isJugable()){
                     System.out.println("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2());
@@ -32,8 +32,9 @@ public class Output {
                     System.err.println("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2());
                 }
             }
-            System.out.println("10-Pasar");
         }
+        /*System.out.println();
+        System.out.println("10-Pasar");*/
     }
 
     public static void pasarTorn (Jugador jugador){
