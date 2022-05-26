@@ -43,18 +43,19 @@ public class Mexica extends Domino {
     public Parella [] triarParellesInd (){
         Parella p1 = new Parella(1);
         Parella p2 = new Parella(2);
-        int counter = 0;
+        int totalJugs = p1.getJugadorsParella().length + p2.getJugadorsParella().length;
 
-        for (int i = 0; i < p1.getJugadorsParella().length; i++){
-            p1.getJugadorsParella()[0] = new Jugador(i + counter);
-            this.jugadors.add(p1.getJugadorsParella()[i]);
+        for (int i = 0; i < totalJugs; i++){
+            this.jugadors.add(new Jugador(i+1));
         }
 
-        for (int i = 0; i < p2.getJugadorsParella().length; i++){
-            p2.getJugadorsParella()[0] = new Jugador(i + counter);
-            this.jugadors.add(p2.getJugadorsParella()[i]);
+        for (int i = 0; i < this.jugadors.size(); i++){
+            if (i == 0 || this.jugadors.size() % i == 0){
+                p1.getJugadorsParella()[0] = jugadors.get(i);
+            } else {
+                p2.getJugadorsParella()[0] = jugadors.get(i);
+            }
         }
-
 
         Parella [] parelles = {p1, p2};
         return parelles;
