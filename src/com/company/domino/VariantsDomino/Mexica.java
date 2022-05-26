@@ -21,39 +21,41 @@ public class Mexica extends Domino {
     @Override
     public void jugar(Domino newGame, Tablero tablero) {
         super.jugar(newGame, tablero);
+        int fitxesPerJug = 0;
 
         Output.triarModMex();
 
         switch (Input.triarModMex()){
             case INDIVIDUAL:
-                iniciMexicaInd(newGame, tablero);
+                fitxesPerJug = 7;
+                iniciMexicaInd(newGame, tablero, fitxesPerJug);
                 break;
 
         }
     }
 
-    public void iniciMexicaInd (Domino newGame, Tablero tablero){
+    public void iniciMexicaInd (Domino newGame, Tablero tablero, int fitxesPerJug){
         Parella [] parellas = triarParellesInd();
-        newGame.assignarFitxesJug(newGame.getFitxesJoc(), this.jugadors, 4);
+        newGame.assignarFitxesJug(newGame.getFitxesJoc(), this.jugadors, fitxesPerJug);
         jocInd(parellas[0], parellas[1], newGame, tablero);
     }
 
     public Parella [] triarParellesInd (){
         Parella p1 = new Parella(1);
         Parella p2 = new Parella(2);
+        int counter = 0;
 
-        for (int i = 0; i < 4; i++){
-            for (int j = 0; j < 2; j++){
-                if (i == 0 || i == 2){
-                    p1.getJugadorsParella()[0] = new Jugador(i+1);
-                    this.jugadors.add(p1.getJugadorsParella()[j]);
-                } else {
-                    p2.getJugadorsParella()[1] = new Jugador(i+1);
-                    this.jugadors.add(p2.getJugadorsParella()[j]);
-                }
-            }
-
+        for (int i = 0; i < p1.getJugadorsParella().length; i++){
+            p1.getJugadorsParella()[0] = new Jugador(i + counter);
+            this.jugadors.add(p1.getJugadorsParella()[i]);
         }
+
+        for (int i = 0; i < p2.getJugadorsParella().length; i++){
+            p2.getJugadorsParella()[0] = new Jugador(i + counter);
+            this.jugadors.add(p2.getJugadorsParella()[i]);
+        }
+
+
         Parella [] parelles = {p1, p2};
         return parelles;
     }
