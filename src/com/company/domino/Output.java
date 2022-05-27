@@ -27,12 +27,8 @@ public class Output {
                 System.out.print("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2() + " ");
             } else {
                 if (fitxa.isJugable()){
-                    System.out.println();
-                    System.out.println("Fitxes jugables");
                     System.out.print("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2() + " ");
                 } else {
-                    System.out.println();
-                    System.out.println("Fitxes no jugables");
                     System.err.print("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2() + " ");
                 }
             }
