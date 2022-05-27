@@ -21,10 +21,6 @@ public class Input {
                 modMex = ModalitatsMexica.PARELLES;
                 break;
 
-            case 2:
-                modMex = ModalitatsMexica.EQUIPS;
-                break;
-
             default:
                 Output.opcioNoCorrecte();
                 break;

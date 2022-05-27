@@ -66,8 +66,8 @@ public class Domino {
         }
     }
 
-    public void fitxesJugables (Tablero tablero, Fitxa fitxa, int fitxesAMa){
-        for (int i = 0; i < fitxesAMa; i++){
+    public void fitxesJugables (Tablero tablero, ArrayList<Fitxa> fitxesJug){
+        for (Fitxa fitxa : fitxesJug){
             if (fitxa.getCara1() == tablero.getExtrem1() ||
                     fitxa.getCara2() == tablero.getExtrem1() ||
                     fitxa.getCara1() == tablero.getExtrem2() ||
@@ -77,6 +77,16 @@ public class Domino {
                 fitxa.setJugable(false);
             }
         }
+    }
+
+    public boolean teFitxesJugables (ArrayList<Fitxa> fitxesJug){
+        boolean agafar = false;
+        for (Fitxa fitxa : fitxesJug){
+            if (fitxa.isJugable()){
+                agafar = true;
+            }
+        }
+        return agafar;
     }
 
 }

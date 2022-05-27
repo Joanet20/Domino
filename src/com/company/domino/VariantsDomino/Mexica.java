@@ -129,9 +129,9 @@ public class Mexica extends Domino {
         for (int i = 0; i < p1.getJugadorsParella().length; i++){
             Jugador jugActual = p1.getJugadorsParella()[i];
             if (torn == jugActual.getIdJug()){
+                newGame.fitxesJugables(tablero, jugActual.getFitxesJug());
                 int indexFitxa = Input.triaFitxa(jugActual.getFitxesJug(), jugActual, tirades);
-                newGame.fitxesJugables(tablero, jugActual.getFitxesJug().get(indexFitxa), jugActual.getFitxesJug().size());
-                if (indexFitxa != 29){
+                if (newGame.teFitxesJugables(jugActual.getFitxesJug())){
                     tablero.getFitxesTab().add(jugActual.getFitxesJug().get(indexFitxa));
                     jugActual.getFitxesJug().remove(indexFitxa);
                     tablero.setExtrem1(jugActual.getFitxesJug().get(indexFitxa).getCara1());
@@ -143,9 +143,9 @@ public class Mexica extends Domino {
 
             if (torn == p2.getJugadorsParella()[i].getIdJug()){
                 Jugador jugActual2 = p2.getJugadorsParella()[i];
+                newGame.fitxesJugables(tablero, jugActual2.getFitxesJug());
                 int indexFitxa = Input.triaFitxa(jugActual2.getFitxesJug(), jugActual2, tirades);
-                newGame.fitxesJugables(tablero, jugActual2.getFitxesJug().get(indexFitxa), jugActual2.getFitxesJug().size());
-                if (indexFitxa != 29){
+                if (newGame.teFitxesJugables(jugActual2.getFitxesJug())){
                     tablero.getFitxesTab().add(jugActual2.getFitxesJug().get(indexFitxa));
                     jugActual2.getFitxesJug().remove(indexFitxa);
                     tablero.setExtrem1(jugActual2.getFitxesJug().get(indexFitxa).getCara1());
