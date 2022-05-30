@@ -21,7 +21,7 @@ public class Espanyol extends Domino {
 
         switch (Input.triarModEsp()){
             case INDIVIDUAL:
-
+                iniciEspInd(newGame, tablero, 7);
 
         }
     }
@@ -53,6 +53,6 @@ public class Espanyol extends Domino {
         boolean begin = false;
         int torn = jugadorInicial(this.jugadors);
 
-
+        while (this.jugadors.get(0).getPuntucaioJug() == 0)
     }
 }

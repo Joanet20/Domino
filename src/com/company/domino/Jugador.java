@@ -24,4 +24,8 @@ public class Jugador {
     public ArrayList<Fitxa> getFitxesJug (){
         return fitxesJug;
     }
+
+    public int getPuntucaioJug() {
+        return puntucaioJug;
+    }
 }
