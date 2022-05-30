@@ -2,5 +2,6 @@ package com.company.domino.VariantsDomino;
 
 public enum ModalitatsEsp {
     INDIVIDUAL,
-    PARELLES
+    PARELLES,
+    DEFECTE
 }

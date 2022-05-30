@@ -28,6 +28,27 @@ public class Input {
         return modMex;
     }
 
+    public static ModalitatsEsp triarModEsp (){
+
+        ModalitatsEsp modEsp = ModalitatsEsp.DEFECTE;
+        Scanner sc = new Scanner(System.in);
+
+        switch (sc.nextInt()){
+            case 0:
+                modEsp = ModalitatsEsp.INDIVIDUAL;
+                break;
+
+            case 1:
+                modEsp = ModalitatsEsp.PARELLES;
+                break;
+
+            default:
+                Output.opcioNoCorrecte();
+                break;
+        }
+        return modEsp;
+    }
+
     public static Domino triarClasse (){
 
         Domino newGame = new Domino(0, "");

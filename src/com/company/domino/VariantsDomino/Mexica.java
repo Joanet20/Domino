@@ -27,8 +27,7 @@ public class Mexica extends Domino {
 
         switch (Input.triarModMex()){
             case INDIVIDUAL:
-                fitxesPerJug = 7;
-                iniciMexicaInd(newGame, tablero, fitxesPerJug);
+                iniciMexicaInd(newGame, tablero, 7);
                 break;
 
         }

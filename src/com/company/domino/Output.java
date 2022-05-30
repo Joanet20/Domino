@@ -9,7 +9,11 @@ public class Output {
     }
 
     public static void triarModMex (){
-        System.out.println("Tria una modalitat 0-Individual, 1-Parelles, 2-Equips");
+        System.out.println("Tria una modalitat 0-Individual, 1-Parelles");
+    }
+
+    public static void triarModEsp (){
+        System.out.println("Tria una modalitat 0-Individual, 1-Parelles");
     }
 
     public static void triarClase (){
