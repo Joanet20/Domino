@@ -53,6 +53,13 @@ public class Espanyol extends Domino {
         boolean begin = false;
         int torn = jugadorInicial(this.jugadors);
 
-        while (this.jugadors.get(0).getPuntucaioJug() == 0)
+        while (this.jugadors.get(0).getPuntucaioJug() < this.getPuntuacio() ||
+                this.jugadors.get(1).getPuntucaioJug() < this.getPuntuacio()){
+            if (!begin){
+                begin = true;
+            } else {
+
+            }
+        }
     }
 }
