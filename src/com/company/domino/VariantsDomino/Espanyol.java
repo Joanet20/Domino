@@ -26,22 +26,6 @@ public class Espanyol extends Domino {
         }
     }
 
-    public int jugadorInicial (ArrayList<Jugador> jugadors){
-
-        int indexJug = 0;
-
-        for (int i = 6; i >= 0; i--){
-            for (Jugador player : jugadors){
-                for (Fitxa fitxa : player.getFitxesJug()){
-                    if (fitxa.getCara1() == i && fitxa.getCara2() == i){
-                        indexJug = player.getIdJug();
-                    }
-                }
-            }
-        }
-        return indexJug;
-    }
-
     public void iniciEspInd (Domino newGame, Tablero tablero, int fitxesPerJug){
         this.jugadors.add(new Jugador(1));
         this.jugadors.add(new Jugador(2));
@@ -51,7 +35,6 @@ public class Espanyol extends Domino {
     public void jocInd (Domino newGame, Tablero tablero){
         int tirades = 0;
         boolean begin = false;
-        int torn = jugadorInicial(this.jugadors);
 
         while (this.jugadors.get(0).getPuntucaioJug() < this.getPuntuacio() ||
                 this.jugadors.get(1).getPuntucaioJug() < this.getPuntuacio()){
