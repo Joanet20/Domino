@@ -93,4 +93,17 @@ public class Domino {
         return jugadors.size();
     }
 
+    public ArrayList<Jugador> assignarParelles (ArrayList<Jugador> jugadors){
+        ArrayList<Jugador> parelles = jugadors;
+
+        for (int i = 0; i < jugadors.size(); i++){
+            if ((i+1)%2 != 0){
+                parelles.get(i).setIdParella(1);
+            } else {
+                parelles.get(i).setIdParella(2);
+            }
+        }
+        return parelles;
+    }
+
 }

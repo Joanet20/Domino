@@ -2,7 +2,7 @@ package com.company.domino;
 
 import java.util.ArrayList;
 
-public class Torn {
+public abstract class Torn {
 
     private int idJugador;
 
@@ -29,23 +29,8 @@ public class Torn {
         return indexJug;
     }
 
-    public void tornEsp (ArrayList<Jugador> jugadors, int tornInicial, Domino newGame, Tablero tablero, ArrayList<Fitxa> fitxesJug, int tirades){
-        for (Jugador player : jugadors){
-            if (tornInicial == player.getIdJug()){
-                newGame.fitxesJugables(tablero, fitxesJug);
-                int fitxaTriada = Input.triaFitxa(fitxesJug, player, tirades);
-                if (newGame.teFitxesJugables(player.getFitxesJug())){
-                    tablero.getFitxesTab().add(player.getFitxesJug().get(fitxaTriada));
-                    player.getFitxesJug().remove(fitxaTriada);
-                    tablero.setExtrem1(player.getFitxesJug().get(fitxaTriada).getCara1());
-                    tablero.setExtrem2(player.getFitxesJug().get(fitxaTriada).getCara2());
-                } else {
-                    Output.pasarTorn(player);
-                }
-            }
-        }
-        seguentTorn(tornInicial, newGame.numeroJugadors(jugadors));
-    }
+    public abstract void torn (ArrayList<Jugador> jugadors, int tornInicial, Domino newGame, Tablero tablero, ArrayList<Fitxa> fitxesJug, int tirades);
+
 
     public int seguentTorn (int torn, int numJugadors){
         int next = torn;
