@@ -17,7 +17,7 @@ public class Output {
     }
 
     public static void triarClase (){
-        System.out.println("Tria una classe 0-Mexicà, 1-Chileno, 2-Colombiano, 3-Latino, 4-Venezolano");
+        System.out.println("Tria una classe 0-Mexicà, 1-Espanyol, 2-Colombiano, 3-Latino, 4-Venezolano");
     }
 
     public static void classeTriada (String name){
@@ -28,7 +28,7 @@ public class Output {
         System.out.println("Torn del jugador " + jugador.getIdJug());
         for (Fitxa fitxa : fitxesJug){
             if (tirada == 0){
-                System.out.print("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2() + " ");
+                //System.out.print("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2() + " ");
             } else {
                 if (fitxa.isJugable()){
                     System.out.print("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2() + " ");

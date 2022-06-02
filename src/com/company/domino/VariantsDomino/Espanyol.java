@@ -39,6 +39,7 @@ public class Espanyol extends Domino {
         this.jugadors.add(new Jugador(1));
         this.jugadors.add(new Jugador(2));
         newGame.assignarFitxesJug(newGame.getFitxesJoc(), this.jugadors, fitxesPerJug);
+        jocEsp(newGame, tablero, 0);
     }
 
     public void iniciEspParelles (Domino newGame, Tablero tablero, int fitxesPerJug){
@@ -47,6 +48,7 @@ public class Espanyol extends Domino {
         this.jugadors.add(new Jugador(3, 1));
         this.jugadors.add(new Jugador(4, 2));
         newGame.assignarFitxesJug(newGame.getFitxesJoc(), this.jugadors, fitxesPerJug);
+        jocEsp(newGame, tablero, 1);
     }
 
     public void jocEsp (Domino newGame, Tablero tablero, int modalitat){

@@ -60,7 +60,7 @@ public class Input {
                 break;
 
             case 1:
-                newGame = new Chileno();
+                newGame = new Espanyol();
                 break;
 
             case 2:
