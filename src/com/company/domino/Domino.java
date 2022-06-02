@@ -89,4 +89,8 @@ public class Domino {
         return agafar;
     }
 
+    public int numeroJugadors (ArrayList<Jugador> jugadors){
+        return jugadors.size();
+    }
+
 }

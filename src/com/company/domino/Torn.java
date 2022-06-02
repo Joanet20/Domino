@@ -34,7 +34,27 @@ public class Torn {
             if (tornInicial == player.getIdJug()){
                 newGame.fitxesJugables(tablero, fitxesJug);
                 int fitxaTriada = Input.triaFitxa(fitxesJug, player, tirades);
+                if (newGame.teFitxesJugables(player.getFitxesJug())){
+                    tablero.getFitxesTab().add(player.getFitxesJug().get(fitxaTriada));
+                    player.getFitxesJug().remove(fitxaTriada);
+                    tablero.setExtrem1(player.getFitxesJug().get(fitxaTriada).getCara1());
+                    tablero.setExtrem2(player.getFitxesJug().get(fitxaTriada).getCara2());
+                } else {
+                    Output.pasarTorn(player);
+                }
             }
         }
+        seguentTorn(tornInicial, newGame.numeroJugadors(jugadors));
+    }
+
+    public int seguentTorn (int torn, int numJugadors){
+        int next = torn;
+
+        if (torn < numJugadors){
+            next++;
+        } else {
+            next = 1;
+        }
+        return next;
     }
 }
