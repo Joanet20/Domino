@@ -29,7 +29,7 @@ public abstract class Torn {
         return indexJug;
     }
 
-    public abstract void torn (ArrayList<Jugador> jugadors, int tornInicial, Domino newGame, Tablero tablero, ArrayList<Fitxa> fitxesJug, int tirades);
+    public abstract void torn (ArrayList<Jugador> jugadors, int tornInicial, Domino newGame, Tablero tablero, int tirades);
 
 
     public int seguentTorn (int torn, int numJugadors){

@@ -14,6 +14,12 @@ public class Jugador {
         this.fitxesJug = new ArrayList<>(7);
     }
 
+    public Jugador (int idJug, int idParella){
+        this.idJug = idJug;
+        this.fitxesJug = new ArrayList<>(7);
+        this.idParella = idParella;
+    }
+
     public int getIdJug (){
         return idJug;
     }
@@ -30,6 +36,10 @@ public class Jugador {
         return puntucaioJug;
     }
 
+    public void setPuntucaioJug(int puntucaioJug) {
+        this.puntucaioJug = puntucaioJug;
+    }
+
     public int getIdParella() {
         return idParella;
     }
@@ -37,5 +47,7 @@ public class Jugador {
     public void setIdParella(int idParella) {
         this.idParella = idParella;
     }
+
+
 
 }

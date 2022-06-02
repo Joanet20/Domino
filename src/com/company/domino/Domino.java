@@ -93,17 +93,43 @@ public class Domino {
         return jugadors.size();
     }
 
-    public ArrayList<Jugador> assignarParelles (ArrayList<Jugador> jugadors){
-        ArrayList<Jugador> parelles = jugadors;
-
-        for (int i = 0; i < jugadors.size(); i++){
-            if ((i+1)%2 != 0){
-                parelles.get(i).setIdParella(1);
-            } else {
-                parelles.get(i).setIdParella(2);
+    public boolean teFitxes (ArrayList<Jugador> jugadors){
+        for (Jugador player : jugadors){
+            if (player.getFitxesJug().size() > 0){
+                return true;
             }
         }
-        return parelles;
+        return false;
+    }
+
+    public int wiinerHand (ArrayList<Jugador> jugadors){
+        int indexJugador = 0;
+
+        for (Jugador player : jugadors){
+            if (player.getFitxesJug().size() > 0){
+                indexJugador = player.getIdJug();
+            }
+        }
+        return indexJugador;
+    }
+
+    public void eliminarFitxes (ArrayList<Jugador> jugadors){
+        for (Jugador player : jugadors){
+            for (Fitxa fitxa : player.getFitxesJug()){
+                player.getFitxesJug().remove(fitxa);
+            }
+        }
+    }
+
+    public int calcularPuntuacio (ArrayList<Jugador> jugadors){
+        int puntuacio = 0;
+
+        for (Jugador player : jugadors){
+            for (Fitxa fitxa : player.getFitxesJug()){
+                puntuacio += fitxa.getCara1() + fitxa.getCara2();
+            }
+        }
+        return puntuacio;
     }
 
 }
