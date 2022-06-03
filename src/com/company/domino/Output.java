@@ -28,7 +28,7 @@ public class Output {
         System.out.println("Torn del jugador " + jugador.getIdJug());
         for (Fitxa fitxa : fitxesJug){
             if (tirada == 0){
-                //System.out.print("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2() + " ");
+                System.out.print("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2() + " ");
             } else {
                 if (fitxa.isJugable()){
                     System.out.print("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2() + " ");
