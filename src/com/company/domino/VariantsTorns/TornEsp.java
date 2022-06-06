@@ -13,6 +13,7 @@ public class TornEsp extends Torn {
                 if (tirades > 0){
                     newGame.fitxesJugables(tablero, player.getFitxesJug());
                 }
+                Output.imprimirTablero(tablero);
                 int fitxaTriada = Input.triaFitxa(player.getFitxesJug(), player, tirades);
 
                 if (tirades == 0){
