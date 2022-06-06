@@ -14,7 +14,8 @@ public class TornEsp extends Torn {
                     newGame.fitxesJugables(tablero, player.getFitxesJug());
                 }
                 int fitxaTriada = Input.triaFitxa(player.getFitxesJug(), player, tirades);
-                if (/*newGame.teFitxesJugables(player.getFitxesJug()) &&*/ tirades == 0){
+
+                if (tirades == 0){
                     while (!player.getFitxesJug().get(fitxaTriada).isJugable() && tirades > 0){
                         fitxaTriada = Input.triaFitxa(player.getFitxesJug(), player, tirades);
                     }
@@ -27,16 +28,28 @@ public class TornEsp extends Torn {
 
                     if (tablero.getExtrem1() == player.getFitxesJug().get(fitxaTriada).getCara1()) {
                         tablero.setExtrem1(player.getFitxesJug().get(fitxaTriada).getCara2());
+                        player.getFitxesJug().remove(fitxaTriada);
                     } else if (tablero.getExtrem1() == player.getFitxesJug().get(fitxaTriada).getCara2()){
                         tablero.setExtrem1(player.getFitxesJug().get(fitxaTriada).getCara1());
+                        player.getFitxesJug().remove(fitxaTriada);
                     } else if (tablero.getExtrem2() == player.getFitxesJug().get(fitxaTriada).getCara1()){
                         tablero.setExtrem2(player.getFitxesJug().get(fitxaTriada).getCara2());
+                        player.getFitxesJug().remove(fitxaTriada);
                     } else if (tablero.getExtrem2() == player.getFitxesJug().get(fitxaTriada).getCara2()){
                         tablero.setExtrem2(player.getFitxesJug().get(fitxaTriada).getCara1());
+                        player.getFitxesJug().remove(fitxaTriada);
                     }
 
                 } else {
-                    Output.pasarTorn(player);
+                    if (!newGame.getFitxesJoc().isEmpty()){
+                        while (!newGame.teFitxesJugables(player.getFitxesJug())){
+                            newGame.robarFitxa(newGame.getFitxesJoc(), player);
+                            Output.agafaFitxa(player);
+                        }
+                    } else {
+                        Output.pasarTorn(player);
+                    }
+
                 }
             }
         }

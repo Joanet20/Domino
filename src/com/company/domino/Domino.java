@@ -132,4 +132,8 @@ public class Domino {
         return puntuacio;
     }
 
+    public void robarFitxa (ArrayList<Fitxa> fitxesJoc, Jugador player){
+        player.getFitxesJug().add(fitxesJoc.get(0));
+    }
+
 }

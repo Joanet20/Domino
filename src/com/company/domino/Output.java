@@ -44,4 +44,8 @@ public class Output {
     public static void pasarTorn (Jugador jugador){
         System.out.println("El jugador " + jugador.getIdJug() + " ha passat el seu torn");
     }
+
+    public static void agafaFitxa (Jugador jugador){
+        System.out.println("El jugador " + jugador.getIdJug() + " ha agafat fitxa");
+    }
 }
