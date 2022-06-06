@@ -40,7 +40,7 @@ public class TornEsp extends Torn {
                         player.getFitxesJug().remove(fitxaTriada);
                     }
 
-                } else {
+                } else if (!newGame.teFitxesJugables(player.getFitxesJug())){
                     if (!newGame.getFitxesJoc().isEmpty()){
                         while (!newGame.teFitxesJugables(player.getFitxesJug())){
                             newGame.robarFitxa(newGame.getFitxesJoc(), player);
