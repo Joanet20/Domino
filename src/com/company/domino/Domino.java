@@ -134,6 +134,7 @@ public class Domino {
 
     public void robarFitxa (ArrayList<Fitxa> fitxesJoc, Jugador player){
         player.getFitxesJug().add(fitxesJoc.get(0));
+        fitxesJoc.remove(0);
     }
 
 }
