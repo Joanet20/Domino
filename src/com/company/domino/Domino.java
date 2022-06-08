@@ -14,6 +14,11 @@ public class Domino {
         this.fitxesJoc = new ArrayList<>();
     }
 
+    public Domino (String name){
+        this.name = name;
+        this.fitxesJoc = new ArrayList<>();
+    }
+
     public static void inici (){
         Output.triarClase();
         Domino newGame = Input.triarClasse();

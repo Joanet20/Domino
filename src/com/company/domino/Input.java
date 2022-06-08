@@ -49,6 +49,23 @@ public class Input {
         return modEsp;
     }
 
+    public static ModalitatsCla triarModCla (){
+
+        ModalitatsCla modCla = ModalitatsCla.DEFECTE;
+        Scanner sc = new Scanner(System.in);
+
+        switch (sc.nextInt()){
+            case 0:
+                modCla = ModalitatsCla.INDIVIDUAL;
+                break;
+
+            default:
+                Output.opcioNoCorrecte();
+                break;
+        }
+        return modCla;
+    }
+
     public static Domino triarClasse (){
 
         Domino newGame = new Domino(0, "");

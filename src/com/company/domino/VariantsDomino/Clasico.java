@@ -5,12 +5,12 @@ import com.company.domino.VariantsTorns.TornEsp;
 
 import java.util.ArrayList;
 
-public class Espanyol extends Domino {
+public class Clasico extends Domino {
 
     private ArrayList<Jugador> jugadors;
 
-    public Espanyol (){
-        super(100, "Espanyol");
+    public Clasico (){
+        super("Clásico");
         this.jugadors = new ArrayList<>();
     }
 
@@ -20,13 +20,9 @@ public class Espanyol extends Domino {
 
         Output.triarModEsp();
 
-        switch (Input.triarModEsp()){
+        switch (Input.triarModCla()){
             case INDIVIDUAL:
-                iniciEspIndividual(newGame, tablero, 7);
-                break;
-
-            case PARELLES:
-                iniciEspParelles(newGame, tablero, 5);
+                iniciClaIndividual(newGame, tablero, 7);
                 break;
 
             default:
@@ -35,27 +31,18 @@ public class Espanyol extends Domino {
         }
     }
 
-    public void iniciEspIndividual (Domino newGame, Tablero tablero, int fitxesPerJug){
+    public void iniciClaIndividual (Domino newGame, Tablero tablero, int fitxesPerJug){
         this.jugadors.add(new Jugador(1));
         this.jugadors.add(new Jugador(2));
         newGame.assignarFitxesJug(newGame.getFitxesJoc(), this.jugadors, fitxesPerJug);
-        jocEsp(newGame, tablero, 0);
-    }
-
-    public void iniciEspParelles (Domino newGame, Tablero tablero, int fitxesPerJug){
-        this.jugadors.add(new Jugador(1, 1));
-        this.jugadors.add(new Jugador(2, 2));
-        this.jugadors.add(new Jugador(3, 1));
-        this.jugadors.add(new Jugador(4, 2));
-        newGame.assignarFitxesJug(newGame.getFitxesJoc(), this.jugadors, fitxesPerJug);
-        jocEsp(newGame, tablero, 1);
+        jocCla(newGame, tablero, 0);
     }
 
     public boolean comprobarGuanyador (int modalitat){
         boolean hasGuanyat = false;
         if (modalitat == 0){
             for (Jugador jugador : this.jugadors){
-                if (jugador.getPuntucaioJug() >= this.getPuntuacio()){
+                if (jugador.getFitxesJug().isEmpty()){
                     hasGuanyat = true;
                 }
             }
@@ -63,7 +50,7 @@ public class Espanyol extends Domino {
         return hasGuanyat;
     }
 
-    public void jocEsp (Domino newGame, Tablero tablero, int modalitat){
+    public void jocCla (Domino newGame, Tablero tablero, int modalitat){
         int tirades = 0;
         boolean begin = false;
         Torn torn = new TornEsp();
@@ -100,7 +87,5 @@ public class Espanyol extends Domino {
                 }
             }
         }
-
-        Output.hasGuanyat(this.jugadors.get(tornInicial));
     }
 }

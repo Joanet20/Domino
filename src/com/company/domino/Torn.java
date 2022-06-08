@@ -14,20 +14,7 @@ public abstract class Torn {
         this.idJugador = idJugador;
     }
 
-    public int jugadorInicial (ArrayList<Jugador> jugadors){
-        int indexJug = 0;
-
-        for (int i = 6; i >= 0; i--){
-            for (Jugador player : jugadors){
-                for (Fitxa fitxa : player.getFitxesJug()){
-                    if (fitxa.getCara1() == i && fitxa.getCara2() == i){
-                        indexJug = player.getIdJug();
-                    }
-                }
-            }
-        }
-        return indexJug;
-    }
+    public abstract int jugadorInicial (ArrayList<Jugador> jugadors);
 
     public abstract void torn (ArrayList<Jugador> jugadors, int tornInicial, Domino newGame, Tablero tablero, int tirades);
 

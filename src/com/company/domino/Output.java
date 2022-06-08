@@ -17,8 +17,12 @@ public class Output {
         System.out.println("Tria una modalitat 0-Individual, 1-Parelles");
     }
 
+    public static void triarModCla (){
+        System.out.println("Tria una modalitat 0-Individual, 1-Parelles");
+    }
+
     public static void triarClase (){
-        System.out.println("Tria una classe 0-Mexicà, 1-Espanyol, 2-Colombiano, 3-Latino, 4-Venezolano");
+        System.out.println("Tria una classe 0-Clásico, 1-Espanyol, 2-Colombiano, 3-Latino, 4-Venezolano");
     }
 
     public static void classeTriada (String name){
@@ -74,5 +78,9 @@ public class Output {
 
     public static void fitxaNoJugable (){
         System.out.println("La fitxa triada no es jugable, torna tirar!!");
+    }
+
+    public static void hasGuanyat (Jugador player){
+        System.out.println("El jugador " + player.getIdJug() + " ha guanyat!");
     }
 }

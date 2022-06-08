@@ -7,6 +7,22 @@ import java.util.ArrayList;
 public class TornEsp extends Torn {
 
     @Override
+    public int jugadorInicial(ArrayList<Jugador> jugadors) {
+        int indexJug = 0;
+
+        for (int i = 1; i < 7; i++){
+            for (Jugador player : jugadors){
+                for (Fitxa fitxa : player.getFitxesJug()){
+                    if (fitxa.getCara1() == i && fitxa.getCara2() == i){
+                        indexJug = player.getIdJug();
+                    }
+                }
+            }
+        }
+        return indexJug;
+    }
+
+    @Override
     public void torn(ArrayList<Jugador> jugadors, int tornInicial, Domino newGame, Tablero tablero, int tirades) {
         for (Jugador player : jugadors){
             if (tornInicial == player.getIdJug()){
@@ -47,4 +63,6 @@ public class TornEsp extends Torn {
         }
         seguentTorn(tornInicial, newGame.numeroJugadors(jugadors));
     }
+
+
 }
