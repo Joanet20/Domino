@@ -85,6 +85,7 @@ public class Input {
     public static int triaFitxa (ArrayList<Fitxa> fitxesJug, Jugador jugador, int tirada){
 
         Scanner sc = new Scanner(System.in);
+        System.out.println();
         System.out.println("Tria una fitxa jugable");
         Output.mostrarFitxesJugables(fitxesJug, jugador, tirada);
 

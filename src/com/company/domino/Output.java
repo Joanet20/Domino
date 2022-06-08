@@ -1,5 +1,6 @@
 package com.company.domino;
 
+import java.net.PortUnreachableException;
 import java.util.ArrayList;
 
 public class Output {
@@ -26,14 +27,15 @@ public class Output {
 
     public static void mostrarFitxesJugables (ArrayList<Fitxa> fitxesJug, Jugador jugador, int tirada){
         System.out.println("Torn del jugador " + jugador.getIdJug());
+        System.out.println("S-F (Jugable), N-F (No jugable)");
         for (Fitxa fitxa : fitxesJug){
             if (tirada == 0){
                 System.out.print("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2() + " ");
             } else {
                 if (fitxa.isJugable()){
-                    System.out.print("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2() + " ");
+                    System.out.print("S-F" + fitxesJug.indexOf(fitxa) + " [" + fitxa.getCara1() + "|" + fitxa.getCara2() + "] ");
                 } else {
-                    System.err.print("F" + fitxesJug.indexOf(fitxa) + " " + fitxa.getCara1() + "|" + fitxa.getCara2() + " ");
+                    System.out.print("N-F" + fitxesJug.indexOf(fitxa) + " [" + fitxa.getCara1() + "|" + fitxa.getCara2() + "] ");
                 }
             }
         }
@@ -52,6 +54,8 @@ public class Output {
     public static void imprimirTablero (Tablero tablero){
         int bots = 0;
 
+        System.out.println();
+        System.out.println("Tablero");
         for (Fitxa fitxa : tablero.getFitxesTab()){
             System.out.print("[" + fitxa.getCara1() + "|" + fitxa.getCara2() + "] ");
             bots++;
@@ -60,5 +64,6 @@ public class Output {
                 System.out.println();
             }
         }
+        System.out.println();
     }
 }
