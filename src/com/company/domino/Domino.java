@@ -40,15 +40,11 @@ public class Domino {
     }
 
     public void crearFitxes (ArrayList<Fitxa> fitxesJoc){
-        for (int i = 0; i < 7; i++){
-            for (int j = 0; j < 7; j++){
-                if (j <= i){
-                    Fitxa fitxaNova = new Fitxa(i, j);
-                    fitxesJoc.add(fitxaNova);
-                    this.fitxesJoc = fitxesJoc;
-                }
+        for (int i = 0; i < 7; i++)
+            for (int j = i; j < 7; j++){
+                fitxesJoc.add(new Fitxa(i, j));
+                this.fitxesJoc = fitxesJoc;
             }
-        }
     }
 
     public void assignarFitxesJug (ArrayList<Fitxa> fitxesJoc, ArrayList<Jugador> jugadors, int fitxesPerJug){
@@ -94,12 +90,13 @@ public class Domino {
     }
 
     public boolean teFitxes (ArrayList<Jugador> jugadors){
+        boolean teFitxes = false;
         for (Jugador player : jugadors){
             if (player.getFitxesJug().size() > 0){
-                return true;
+                teFitxes = true;
             }
         }
-        return false;
+        return teFitxes;
     }
 
     public int wiinerHand (ArrayList<Jugador> jugadors){
@@ -133,8 +130,13 @@ public class Domino {
     }
 
     public void robarFitxa (ArrayList<Fitxa> fitxesJoc, Jugador player){
-        player.getFitxesJug().add(fitxesJoc.get(0));
-        fitxesJoc.remove(0);
+        if (!fitxesJoc.isEmpty()){
+            player.getFitxesJug().add(fitxesJoc.get(0));
+            fitxesJoc.remove(0);
+        } else {
+            Output.pasarTorn(player);
+        }
+
     }
 
 

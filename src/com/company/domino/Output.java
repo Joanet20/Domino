@@ -51,20 +51,23 @@ public class Output {
         System.out.println("El jugador " + jugador.getIdJug() + " ha agafat fitxa");
     }
 
-    public static void imprimirTablero (Tablero tablero){
-        int bots = 0;
+    public static void imprimirTablero (Tablero tablero, Fitxa fitxaTriada){
 
         System.out.println();
         System.out.println("Tablero");
         for (Fitxa fitxa : tablero.getFitxesTab()){
-            System.out.println("* * * *");
-            System.out.print("* " + fitxa.getCara1() + "|" + fitxa.getCara2() + " *");
-            System.out.println();
-            System.out.println("* * * *");
-            bots++;
-            if (bots == 8){
-                System.out.println();
+            if (fitxa.getCara1() == fitxa.getCara2()){
+                System.out.println(" * * * * *");
+                System.out.println(" * " + fitxa.getCara1() + " | " + fitxa.getCara2() + " *");
+                System.out.println(" * * * * *");
+            } else if (tablero.getExtrem1() == fitxaTriada.getCara1()){
+                    System.out.println("   * * * ");
+                    System.out.println("   * " + fitxa.getCara1() + " *");
+                    System.out.println("   * - *");
+                    System.out.println("   * " + fitxa.getCara2() + " *");
+                    System.out.println("   * * * ");
             }
+
         }
         System.out.println();
     }
