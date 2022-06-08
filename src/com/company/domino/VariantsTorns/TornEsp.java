@@ -17,29 +17,18 @@ public class TornEsp extends Torn {
                 int fitxaTriada = Input.triaFitxa(player.getFitxesJug(), player, tirades);
 
                 if (tirades == 0){
-                    while (!player.getFitxesJug().get(fitxaTriada).isJugable() && tirades > 0){
-                        fitxaTriada = Input.triaFitxa(player.getFitxesJug(), player, tirades);
-                    }
                     tablero.getFitxesTab().add(player.getFitxesJug().get(fitxaTriada));
                     tablero.setExtrem1(player.getFitxesJug().get(fitxaTriada).getCara1());
                     tablero.setExtrem2(player.getFitxesJug().get(fitxaTriada).getCara2());
                     player.getFitxesJug().remove(fitxaTriada);
                 } else if (newGame.teFitxesJugables(player.getFitxesJug()) && tirades > 0){
-                    tablero.getFitxesTab().add(player.getFitxesJug().get(fitxaTriada));
-
-                    if (tablero.getExtrem1() == player.getFitxesJug().get(fitxaTriada).getCara1()) {
-                        tablero.setExtrem1(player.getFitxesJug().get(fitxaTriada).getCara2());
-                        player.getFitxesJug().remove(fitxaTriada);
-                    } else if (tablero.getExtrem1() == player.getFitxesJug().get(fitxaTriada).getCara2()){
-                        tablero.setExtrem1(player.getFitxesJug().get(fitxaTriada).getCara1());
-                        player.getFitxesJug().remove(fitxaTriada);
-                    } else if (tablero.getExtrem2() == player.getFitxesJug().get(fitxaTriada).getCara1()){
-                        tablero.setExtrem2(player.getFitxesJug().get(fitxaTriada).getCara2());
-                        player.getFitxesJug().remove(fitxaTriada);
-                    } else if (tablero.getExtrem2() == player.getFitxesJug().get(fitxaTriada).getCara2()){
-                        tablero.setExtrem2(player.getFitxesJug().get(fitxaTriada).getCara1());
-                        player.getFitxesJug().remove(fitxaTriada);
+                    while (!player.getFitxesJug().get(fitxaTriada).isJugable()){
+                        Output.fitxaNoJugable();
+                        fitxaTriada = Input.triaFitxa(player.getFitxesJug(), player, tirades);
                     }
+
+                    tablero.getFitxesTab().add(player.getFitxesJug().get(fitxaTriada));
+                    newGame.posarExtremsTablero(tablero, player, fitxaTriada);
 
                 } else if (!newGame.teFitxesJugables(player.getFitxesJug())){
                     if (!newGame.getFitxesJoc().isEmpty()){
@@ -47,6 +36,8 @@ public class TornEsp extends Torn {
                             newGame.robarFitxa(newGame.getFitxesJoc(), player);
                             Output.agafaFitxa(player);
                         }
+                        tablero.getFitxesTab().add(player.getFitxesJug().get(player.getFitxesJug().size()-1));
+                        newGame.posarExtremsTablero(tablero, player, player.getFitxesJug().size()-1);
                     } else {
                         Output.pasarTorn(player);
                     }

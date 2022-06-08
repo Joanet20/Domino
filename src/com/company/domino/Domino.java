@@ -137,4 +137,20 @@ public class Domino {
         fitxesJoc.remove(0);
     }
 
+
+    public void posarExtremsTablero (Tablero tablero, Jugador player, int fitxaTriada){
+        if (tablero.getExtrem1() == player.getFitxesJug().get(fitxaTriada).getCara1()) {
+            tablero.setExtrem1(player.getFitxesJug().get(fitxaTriada).getCara2());
+            player.getFitxesJug().remove(fitxaTriada);
+        } else if (tablero.getExtrem1() == player.getFitxesJug().get(fitxaTriada).getCara2()){
+            tablero.setExtrem1(player.getFitxesJug().get(fitxaTriada).getCara1());
+            player.getFitxesJug().remove(fitxaTriada);
+        } else if (tablero.getExtrem2() == player.getFitxesJug().get(fitxaTriada).getCara1()){
+            tablero.setExtrem2(player.getFitxesJug().get(fitxaTriada).getCara2());
+            player.getFitxesJug().remove(fitxaTriada);
+        } else if (tablero.getExtrem2() == player.getFitxesJug().get(fitxaTriada).getCara2()){
+            tablero.setExtrem2(player.getFitxesJug().get(fitxaTriada).getCara1());
+            player.getFitxesJug().remove(fitxaTriada);
+        }
+    }
 }

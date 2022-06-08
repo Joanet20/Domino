@@ -57,13 +57,19 @@ public class Output {
         System.out.println();
         System.out.println("Tablero");
         for (Fitxa fitxa : tablero.getFitxesTab()){
-            System.out.print("[" + fitxa.getCara1() + "|" + fitxa.getCara2() + "] ");
+            System.out.println("* * * *");
+            System.out.print("* " + fitxa.getCara1() + "|" + fitxa.getCara2() + " *");
+            System.out.println();
+            System.out.println("* * * *");
             bots++;
-
             if (bots == 8){
                 System.out.println();
             }
         }
         System.out.println();
+    }
+
+    public static void fitxaNoJugable (){
+        System.out.println("La fitxa triada no es jugable, torna tirar!!");
     }
 }
