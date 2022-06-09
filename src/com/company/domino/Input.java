@@ -66,6 +66,23 @@ public class Input {
         return modCla;
     }
 
+    public static ModalitatsLat triarModLat (){
+
+        ModalitatsLat modLat = ModalitatsLat.DEFECTE;
+        Scanner sc = new Scanner(System.in);
+
+        switch (sc.nextInt()){
+            case 0:
+                modLat = ModalitatsLat.PARELLES;
+                break;
+
+            default:
+                Output.opcioNoCorrecte();
+                break;
+        }
+        return modLat;
+    }
+
     public static Domino triarClasse (){
 
         Domino newGame = new Domino(0, "");

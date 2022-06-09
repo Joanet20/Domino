@@ -44,6 +44,14 @@ public class Domino {
         newGame.crearFitxes(fitxesJoc);
     }
 
+    public boolean comprobarGuanyador(int modalitat){
+        return false;
+    }
+
+    public boolean comprobarGuanyador(){
+        return false;
+    };
+
     public void crearFitxes (ArrayList<Fitxa> fitxesJoc){
         for (int i = 0; i < 7; i++)
             for (int j = i; j < 7; j++){
