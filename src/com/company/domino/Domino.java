@@ -2,7 +2,7 @@ package com.company.domino;
 
 import java.util.ArrayList;
 
-public class Domino {
+public abstract class Domino {
 
     private int puntuacio;
     private String name;
@@ -44,13 +44,9 @@ public class Domino {
         newGame.crearFitxes(fitxesJoc);
     }
 
-    public boolean comprobarGuanyador(int modalitat){
-        return false;
-    }
+    public abstract boolean comprobarGuanyador(int modalitat);
 
-    public boolean comprobarGuanyador(){
-        return false;
-    };
+    public abstract boolean comprobarGuanyador();
 
     public void crearFitxes (ArrayList<Fitxa> fitxesJoc){
         for (int i = 0; i < 7; i++)
@@ -167,5 +163,43 @@ public class Domino {
             tablero.setExtrem2(player.getFitxesJug().get(fitxaTriada).getCara1());
             player.getFitxesJug().remove(fitxaTriada);
         }
+    }
+
+    public boolean isTranca (ArrayList<Jugador> jugadors, Domino newGame){
+        boolean isTranca = false;
+        int limit = 1;
+
+        for (Jugador player : jugadors){
+            if (player.getFitxesJug().isEmpty()){
+                limit++;
+            }
+        }
+
+        if (limit == jugadors.size() && newGame.getFitxesJoc().isEmpty()){
+            isTranca = true;
+        }
+
+        return isTranca;
+    }
+
+    public int guanyadorTranca (ArrayList<Jugador> jugadors){
+        int parellaGuanyadora = 0;
+        int puntsP1 = 0;
+        int puntsP2 = 0;
+
+        for (Jugador player : jugadors){
+            if (player.getIdParella() == 1){
+                puntsP1 += player.getPuntucaioJug();
+            } else if (player.getIdParella() == 2){
+                puntsP2 += player.getPuntucaioJug();
+            }
+        }
+
+        if (puntsP1 > puntsP2){
+            parellaGuanyadora = 1;
+        } else {
+            parellaGuanyadora = 2;
+        }
+        return parellaGuanyadora;
     }
 }

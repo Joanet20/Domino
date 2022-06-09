@@ -31,6 +31,11 @@ public class Latino extends Domino {
         }
     }
 
+    @Override
+    public boolean comprobarGuanyador(int modalitat) {
+        return false;
+    }
+
     public void iniciLatParelles (Domino newGame, Tablero tablero, int fitxesPerJug){
         this.jugadors.add(new Jugador(1, 1));
         this.jugadors.add(new Jugador(2, 2));
@@ -80,4 +85,6 @@ public class Latino extends Domino {
 
         Output.hasGuanyat(this.jugadors.get(tornInicial));
     }
+
+
 }

@@ -82,5 +82,11 @@ public class Output {
 
     public static void hasGuanyat (Jugador player){
         System.out.println("El jugador " + player.getIdJug() + " ha guanyat!");
+        System.exit(1);
+    }
+
+    public static void hasGuanyat (int parellaGuanyadora){
+        System.out.println("La parella " + parellaGuanyadora + " ha guanyat!");
+        System.exit(1);
     }
 }
