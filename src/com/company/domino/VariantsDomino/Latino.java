@@ -2,6 +2,7 @@ package com.company.domino.VariantsDomino;
 
 import com.company.domino.*;
 import com.company.domino.VariantsTorns.TornEsp;
+import com.company.domino.VariantsTorns.TornLat;
 
 import java.util.ArrayList;
 
@@ -17,23 +18,7 @@ public class Latino extends Domino {
     @Override
     public void jugar(Domino newGame, Tablero tablero){
         super.jugar(newGame, tablero);
-
-        Output.triarModEsp();
-
-        switch (Input.triarModLat()){
-            case PARELLES:
-                iniciLatParelles(newGame, tablero, 5);
-                break;
-
-            default:
-                Output.opcioNoCorrecte();
-                break;
-        }
-    }
-
-    @Override
-    public boolean comprobarGuanyador(int modalitat) {
-        return false;
+        iniciLatParelles(newGame, tablero, 7);
     }
 
     public void iniciLatParelles (Domino newGame, Tablero tablero, int fitxesPerJug){
@@ -42,10 +27,9 @@ public class Latino extends Domino {
         this.jugadors.add(new Jugador(3, 1));
         this.jugadors.add(new Jugador(4, 2));
         newGame.assignarFitxesJug(newGame.getFitxesJoc(), this.jugadors, fitxesPerJug);
-        jocLat(newGame, tablero, 1);
+        jocLat(newGame, tablero);
     }
 
-    @Override
     public boolean comprobarGuanyador (){
         boolean hasGuanyat = false;
 
@@ -57,13 +41,13 @@ public class Latino extends Domino {
         return hasGuanyat;
     }
 
-    public void jocLat (Domino newGame, Tablero tablero, int modalitat){
+    public void jocLat (Domino newGame, Tablero tablero){
         int tirades = 0;
         boolean begin = false;
-        Torn torn = new TornEsp();
+        Torn torn = new TornLat();
         int tornInicial = torn.jugadorInicial(this.jugadors);
 
-        while (!comprobarGuanyador(modalitat)){
+        while (!comprobarGuanyador()){
             if (!begin){
                 begin = true;
             } else {

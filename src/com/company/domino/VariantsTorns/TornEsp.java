@@ -56,9 +56,8 @@ public class TornEsp extends Torn {
                     } else {
                         Output.pasarTorn(player);
                     }
-
                 }
-                Output.imprimirTablero(tablero, player.getFitxesJug().get(fitxaTriada));
+                //Output.imprimirTablero(tablero, player.getFitxesJug().get(fitxaTriada));
             }
         }
         seguentTorn(tornInicial, newGame.numeroJugadors(jugadors));

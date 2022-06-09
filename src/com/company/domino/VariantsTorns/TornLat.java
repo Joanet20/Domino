@@ -44,21 +44,11 @@ public class TornLat extends Torn {
                     newGame.posarExtremsTablero(tablero, player, fitxaTriada);
 
                 } else if (!newGame.teFitxesJugables(player.getFitxesJug())){
-                    if (!newGame.getFitxesJoc().isEmpty()){
-                        while (!newGame.teFitxesJugables(player.getFitxesJug())){
-                            newGame.robarFitxa(newGame.getFitxesJoc(), player);
-                            Output.agafaFitxa(player);
-                        }
-                        tablero.getFitxesTab().add(player.getFitxesJug().get(player.getFitxesJug().size()-1));
-                        newGame.posarExtremsTablero(tablero, player, player.getFitxesJug().size()-1);
-                    } else {
-                        Output.pasarTorn(player);
-                    }
-
+                    Output.pasarTorn(player);
                 } else if (newGame.isTranca(jugadors, newGame)){
                     Output.hasGuanyat(newGame.guanyadorTranca(jugadors));
                 }
-                Output.imprimirTablero(tablero, player.getFitxesJug().get(fitxaTriada));
+                //Output.imprimirTablero(tablero, player.getFitxesJug().get(fitxaTriada));
             }
         }
         seguentTorn(tornInicial, newGame.numeroJugadors(jugadors));

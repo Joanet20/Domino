@@ -64,7 +64,7 @@ public class Output {
                 System.out.println(" * * * * *");
                 System.out.println(" * " + fitxa.getCara1() + " | " + fitxa.getCara2() + " *");
                 System.out.println(" * * * * *");
-            } else if (tablero.getExtrem1() == fitxaTriada.getCara1()){
+            } else {
                     System.out.println("   * * * ");
                     System.out.println("   * " + fitxa.getCara1() + " *");
                     System.out.println("   * - *");

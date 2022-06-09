@@ -2,11 +2,12 @@ package com.company.domino;
 
 import java.util.ArrayList;
 
-public abstract class Domino {
+public class Domino {
 
     private int puntuacio;
     private String name;
     private ArrayList<Fitxa> fitxesJoc;
+    private ArrayList<Jugador> jugadors;
 
     public Domino (int puntuacio, String name){
         this.puntuacio = puntuacio;
@@ -44,9 +45,6 @@ public abstract class Domino {
         newGame.crearFitxes(fitxesJoc);
     }
 
-    public abstract boolean comprobarGuanyador(int modalitat);
-
-    public abstract boolean comprobarGuanyador();
 
     public void crearFitxes (ArrayList<Fitxa> fitxesJoc){
         for (int i = 0; i < 7; i++)
@@ -99,10 +97,10 @@ public abstract class Domino {
     }
 
     public boolean teFitxes (ArrayList<Jugador> jugadors){
-        boolean teFitxes = false;
+        boolean teFitxes = true;
         for (Jugador player : jugadors){
-            if (player.getFitxesJug().size() > 0){
-                teFitxes = true;
+            if (player.getFitxesJug().isEmpty()){
+                teFitxes = false;
             }
         }
         return teFitxes;
@@ -112,8 +110,8 @@ public abstract class Domino {
         int indexJugador = 0;
 
         for (Jugador player : jugadors){
-            if (player.getFitxesJug().size() > 0){
-                indexJugador = player.getIdJug();
+            if (player.getFitxesJug().isEmpty()){
+                indexJugador = player.getIdJug()-1;
             }
         }
         return indexJugador;
@@ -121,9 +119,7 @@ public abstract class Domino {
 
     public void eliminarFitxes (ArrayList<Jugador> jugadors){
         for (Jugador player : jugadors){
-            for (Fitxa fitxa : player.getFitxesJug()){
-                player.getFitxesJug().remove(fitxa);
-            }
+            player.getFitxesJug().clear();
         }
     }
 
@@ -139,6 +135,7 @@ public abstract class Domino {
     }
 
     public void robarFitxa (ArrayList<Fitxa> fitxesJoc, Jugador player){
+        System.out.println(fitxesJoc.size());
         if (!fitxesJoc.isEmpty()){
             player.getFitxesJug().add(fitxesJoc.get(0));
             fitxesJoc.remove(0);

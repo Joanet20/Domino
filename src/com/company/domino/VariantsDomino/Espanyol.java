@@ -74,20 +74,16 @@ public class Espanyol extends Domino {
                 begin = true;
             } else {
                 if (modalitat == 0){
-                    torn.torn(this.jugadors, tornInicial, newGame, tablero, tirades);
-                    tornInicial = torn.seguentTorn(tornInicial, this.jugadors.size());
-                    tirades++;
-
                     if (!newGame.teFitxes(this.jugadors)){
                         this.jugadors.get(newGame.wiinerHand(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
                         newGame.eliminarFitxes(this.jugadors);
                     }
 
-                } else if (modalitat == 1) {
                     torn.torn(this.jugadors, tornInicial, newGame, tablero, tirades);
                     tornInicial = torn.seguentTorn(tornInicial, this.jugadors.size());
                     tirades++;
 
+                } else if (modalitat == 1) {
                     if (!newGame.teFitxes(this.jugadors)){
                         int parellaGuanyadora = this.jugadors.get(newGame.wiinerHand(this.jugadors)).getIdParella();
                         for (Jugador player : this.jugadors){
@@ -97,6 +93,10 @@ public class Espanyol extends Domino {
                         }
                         newGame.eliminarFitxes(this.jugadors);
                     }
+
+                    torn.torn(this.jugadors, tornInicial, newGame, tablero, tirades);
+                    tornInicial = torn.seguentTorn(tornInicial, this.jugadors.size());
+                    tirades++;
                 }
             }
         }
