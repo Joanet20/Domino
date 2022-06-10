@@ -77,11 +77,14 @@ public class Espanyol extends Domino {
                     if (!newGame.teFitxes(this.jugadors)){
                         this.jugadors.get(newGame.wiinerHand(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
                         newGame.eliminarFitxes(this.jugadors);
+                        newGame.crearFitxes(newGame.getFitxesJoc());
+                        newGame.assignarFitxesJug(newGame.getFitxesJoc(), this.jugadors, 7);
                     }
 
                     torn.torn(this.jugadors, tornInicial, newGame, tablero, tirades);
                     tornInicial = torn.seguentTorn(tornInicial, this.jugadors.size());
                     tirades++;
+                    Output.printPuntuacio(this.jugadors, modalitat);
 
                 } else if (modalitat == 1) {
                     if (!newGame.teFitxes(this.jugadors)){

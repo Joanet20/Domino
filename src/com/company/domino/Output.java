@@ -89,4 +89,29 @@ public class Output {
         System.out.println("La parella " + parellaGuanyadora + " ha guanyat!");
         System.exit(1);
     }
+
+    public static void printPuntuacio (ArrayList<Jugador> jugadors, int modalitat){
+
+        if (modalitat == 0){
+            for (Jugador player : jugadors){
+                System.out.println("Puntuació J" + player.getIdJug() + ": " + player.getPuntucaioJug());
+            }
+        }
+
+        int puntsP1 = 0;
+        int puntsP2 = 0;
+
+        if (modalitat == 1){
+            for (Jugador player : jugadors){
+                if (player.getIdParella() == 1){
+                    puntsP1 += player.getPuntucaioJug();
+                } else if (player.getIdParella() == 2){
+                    puntsP2 += player.getPuntucaioJug();
+                }
+            }
+            System.out.println("Puntuacions: P1: " + puntsP1 + " P2: " + puntsP2);
+        }
+
+
+    }
 }

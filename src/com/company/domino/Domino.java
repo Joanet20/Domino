@@ -47,6 +47,9 @@ public class Domino {
 
 
     public void crearFitxes (ArrayList<Fitxa> fitxesJoc){
+
+        fitxesJoc.clear();
+
         for (int i = 0; i < 7; i++)
             for (int j = i; j < 7; j++){
                 fitxesJoc.add(new Fitxa(i, j));
@@ -136,9 +139,11 @@ public class Domino {
 
     public void robarFitxa (ArrayList<Fitxa> fitxesJoc, Jugador player){
         System.out.println(fitxesJoc.size());
+
         if (!fitxesJoc.isEmpty()){
-            player.getFitxesJug().add(fitxesJoc.get(0));
-            fitxesJoc.remove(0);
+            int fitxaAleatoria = (int) Math.floor(Math.random()*fitxesJoc.size());
+            player.getFitxesJug().add(fitxesJoc.get(fitxaAleatoria));
+            fitxesJoc.remove(fitxaAleatoria);
         } else {
             Output.pasarTorn(player);
         }
