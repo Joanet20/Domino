@@ -37,7 +37,7 @@ public class TornEsp extends Torn {
                     tablero.setExtrem2(player.getFitxesJug().get(fitxaTriada).getCara2());
                     player.getFitxesJug().remove(fitxaTriada);
                 } else if (newGame.teFitxesJugables(player.getFitxesJug()) && tirades > 0){
-                    while (!player.getFitxesJug().get(fitxaTriada).isJugable() || newGame.getFitxesJoc().isEmpty()){
+                    while (!player.getFitxesJug().get(fitxaTriada).isJugable() && !newGame.getFitxesJoc().isEmpty()){
                         Output.fitxaNoJugable();
                         fitxaTriada = Input.triaFitxa(player.getFitxesJug(), player, tirades);
                     }
@@ -46,6 +46,7 @@ public class TornEsp extends Torn {
                     newGame.posarExtremsTablero(tablero, player, fitxaTriada);
 
                 } else if (!newGame.teFitxesJugables(player.getFitxesJug())){
+                    boolean stop = false;
                     if (!newGame.getFitxesJoc().isEmpty()){
                         while (!newGame.teFitxesJugables(player.getFitxesJug())){
                             newGame.robarFitxa(newGame.getFitxesJoc(), player);
