@@ -204,4 +204,8 @@ public class Domino {
         }
         return parellaGuanyadora;
     }
+
+    public void borrarTablero (Tablero tablero){
+        tablero.getFitxesTab().clear();
+    }
 }

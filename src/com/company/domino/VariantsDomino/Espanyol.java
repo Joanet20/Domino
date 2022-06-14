@@ -74,17 +74,19 @@ public class Espanyol extends Domino {
                 begin = true;
             } else {
                 if (modalitat == 0){
-                    if (!newGame.teFitxes(this.jugadors)){
+                    if (!newGame.teFitxes(this.jugadors) || newGame.isTranca(jugadors, newGame)){
                         this.jugadors.get(newGame.wiinerHand(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
+                        tirades = 0;
                         newGame.eliminarFitxes(this.jugadors);
                         newGame.crearFitxes(newGame.getFitxesJoc());
                         newGame.assignarFitxesJug(newGame.getFitxesJoc(), this.jugadors, 7);
+                        borrarTablero(tablero);
                     }
 
+                    Output.printPuntuacio(this.jugadors, modalitat);
                     torn.torn(this.jugadors, tornInicial, newGame, tablero, tirades);
                     tornInicial = torn.seguentTorn(tornInicial, this.jugadors.size());
                     tirades++;
-                    Output.printPuntuacio(this.jugadors, modalitat);
 
                 } else if (modalitat == 1) {
                     if (!newGame.teFitxes(this.jugadors)){
@@ -94,6 +96,8 @@ public class Espanyol extends Domino {
                                 this.jugadors.get(newGame.wiinerHand(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
                             }
                         }
+                        tirades = 0;
+                        borrarTablero(tablero);
                         newGame.eliminarFitxes(this.jugadors);
                     }
 

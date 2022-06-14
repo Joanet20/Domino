@@ -37,7 +37,7 @@ public class Jugador {
     }
 
     public void setPuntucaioJug(int puntucaioJug) {
-        this.puntucaioJug = puntucaioJug;
+        this.puntucaioJug = puntucaioJug + this.getPuntucaioJug();
     }
 
     public int getIdParella() {

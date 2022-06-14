@@ -62,6 +62,7 @@ public class Latino extends Domino {
                             this.jugadors.get(newGame.wiinerHand(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
                         }
                     }
+                    tirades = 0;
                     newGame.eliminarFitxes(this.jugadors);
                 }
             }
