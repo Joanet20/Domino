@@ -47,8 +47,6 @@ public class Output {
                 }
             }
         }
-        /*System.out.println();
-        System.out.println("10-Pasar");*/
     }
 
     public static void pasarTorn (Jugador jugador){

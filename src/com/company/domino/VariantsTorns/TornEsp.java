@@ -55,7 +55,7 @@ public class TornEsp extends Torn {
                         newGame.posarExtremsTablero(tablero, player, player.getFitxesJug().size()-1);
                     }
                 }
-                //Output.imprimirTablero(tablero, player.getFitxesJug().get(fitxaTriada));
+                Output.imprimirTablero(tablero, player.getFitxesJug().get(fitxaTriada));
             }
         }
         seguentTorn(tornInicial, newGame.numeroJugadors(jugadors));

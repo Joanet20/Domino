@@ -48,7 +48,7 @@ public class TornLat extends Torn {
                 } else if (newGame.isTranca(jugadors, newGame)){
                     Output.hasGuanyat(newGame.guanyadorTranca(jugadors));
                 }
-                //Output.imprimirTablero(tablero, player.getFitxesJug().get(fitxaTriada));
+                Output.imprimirTablero(tablero, player.getFitxesJug().get(fitxaTriada));
             }
         }
         seguentTorn(tornInicial, newGame.numeroJugadors(jugadors));
