@@ -17,6 +17,10 @@ public class Output {
         System.out.println("Tria una modalitat 0-Individual, 1-Parelles");
     }
 
+    public static void triarModChi (){
+        System.out.println("Tria una modalitat 0-Individual, 1-Parelles");
+    }
+
     public static void triarModCla (){
         System.out.println("Tria una modalitat 0-Individual, 1-Parelles");
     }

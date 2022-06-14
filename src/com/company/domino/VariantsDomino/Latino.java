@@ -55,11 +55,15 @@ public class Latino extends Domino {
                 tornInicial = torn.seguentTorn(tornInicial, this.jugadors.size());
                 tirades++;
 
-                if (!newGame.teFitxes(this.jugadors)){
+                if (!newGame.teFitxes(this.jugadors) || newGame.isTranca(this.jugadors, newGame)){
                     int parellaGuanyadora = this.jugadors.get(newGame.wiinerHand(this.jugadors)).getIdParella();
                     for (Jugador player : this.jugadors){
                         if (player.getIdParella() == parellaGuanyadora){
-                            this.jugadors.get(newGame.wiinerHand(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
+                            if (newGame.isTranca(this.jugadors, newGame)){
+                                this.jugadors.get(newGame.guanyadorTranca(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
+                            } else {
+                                this.jugadors.get(newGame.wiinerHand(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
+                            }
                         }
                     }
                     tirades = 0;

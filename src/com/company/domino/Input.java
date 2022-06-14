@@ -49,21 +49,25 @@ public class Input {
         return modEsp;
     }
 
-    public static ModalitatsCla triarModCla (){
+    public static ModalitatsChi triarModChi (){
 
-        ModalitatsCla modCla = ModalitatsCla.DEFECTE;
+        ModalitatsChi modChi = ModalitatsChi.DEFECTE;
         Scanner sc = new Scanner(System.in);
 
         switch (sc.nextInt()){
             case 0:
-                modCla = ModalitatsCla.INDIVIDUAL;
+                modChi = ModalitatsChi.INDIVIDUAL;
+                break;
+
+            case 1:
+                modChi = ModalitatsChi.PARELLES;
                 break;
 
             default:
                 Output.opcioNoCorrecte();
                 break;
         }
-        return modCla;
+        return modChi;
     }
 
     public static ModalitatsLat triarModLat (){

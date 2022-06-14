@@ -1,6 +1,7 @@
 package com.company.domino.VariantsDomino;
 
-public enum ModalitatsCla {
+public enum ModalitatsChi {
     INDIVIDUAL,
+    PARELLES,
     DEFECTE
 }
