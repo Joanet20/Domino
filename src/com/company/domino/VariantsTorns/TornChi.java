@@ -41,7 +41,6 @@ public class TornChi extends Torn{
                         Output.fitxaNoJugable();
                         fitxaTriada = Input.triaFitxa(player.getFitxesJug(), player, tirades);
                     }
-
                     tablero.getFitxesTab().add(player.getFitxesJug().get(fitxaTriada));
                     newGame.posarExtremsTablero(tablero, player, fitxaTriada);
 

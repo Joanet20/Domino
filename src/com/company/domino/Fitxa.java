@@ -7,6 +7,7 @@ public class Fitxa {
     private boolean jugada;
     private boolean jugable;
     private boolean assignada;
+    private int caraCreu;
 
     public Fitxa(int cara1, int cara2){
         this.cara1 = cara1;
@@ -14,6 +15,7 @@ public class Fitxa {
         this.jugable = false;
         this.jugada = false;
         this.assignada = false;
+        this.caraCreu = 0;
     }
 
     public boolean isAssignada() {
@@ -38,6 +40,14 @@ public class Fitxa {
 
     public void setJugable(boolean jugable) {
         this.jugable = jugable;
+    }
+
+    public int getCaraCreu() {
+        return caraCreu;
+    }
+
+    public void setCaraCreu(int caraCreu) {
+        this.caraCreu = caraCreu;
     }
 
     public int sumaCares (Fitxa fitxa){
