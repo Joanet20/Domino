@@ -1,6 +1,7 @@
 package com.company.domino;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Domino {
 
@@ -185,6 +186,7 @@ public class Domino {
     }
 
     public int guanyadorTranca (ArrayList<Jugador> jugadors){
+        int jugadorGuanyador = 0;
         int parellaGuanyadora = 0;
         int puntsP1 = 0;
         int puntsP2 = 0;
@@ -207,5 +209,39 @@ public class Domino {
 
     public void borrarTablero (Tablero tablero){
         tablero.getFitxesTab().clear();
+    }
+
+    public boolean isCierre (ArrayList<Jugador> jugadors, Domino newGame) {
+        boolean isCierre = false;
+        int limit = 0;
+
+        for (Jugador player : jugadors){
+            if (!newGame.teFitxesJugables(player.getFitxesJug())){
+                limit++;
+            }
+        }
+
+        if (limit == jugadors.size()){
+            isCierre = true;
+        }
+        return isCierre;
+    }
+
+    public int jugadorGuanyadorCierre (ArrayList<Jugador> jugadors){
+        ArrayList<Integer> puntuacions = new ArrayList<>();
+        int jugadorGuanyador = 0;
+
+        for (Jugador player : jugadors){
+            puntuacions.add(player.getPuntucaioJug());
+        }
+
+        Collections.sort(puntuacions);
+
+        for (Jugador player : jugadors){
+            if (player.getPuntucaioJug() == puntuacions.get(0)){
+                jugadorGuanyador = player.getIdJug();
+            }
+        }
+        return jugadorGuanyador;
     }
 }

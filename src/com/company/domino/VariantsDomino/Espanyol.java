@@ -74,8 +74,14 @@ public class Espanyol extends Domino {
                 begin = true;
             } else {
                 if (modalitat == 0){
-                    if (!newGame.teFitxes(this.jugadors) || newGame.isTranca(jugadors, newGame)){
-                        this.jugadors.get(newGame.wiinerHand(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
+                    if (!newGame.teFitxes(this.jugadors) || newGame.isCierre(this.jugadors, newGame)){
+
+                        if (newGame.isCierre(this.jugadors, newGame)){
+                            this.jugadors.get(newGame.jugadorGuanyadorCierre(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
+                        } else {
+                            this.jugadors.get(newGame.wiinerHand(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
+                        }
+
                         tirades = 0;
                         newGame.eliminarFitxes(this.jugadors);
                         newGame.crearFitxes(newGame.getFitxesJoc());
