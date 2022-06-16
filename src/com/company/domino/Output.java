@@ -66,12 +66,18 @@ public class Output {
                 System.out.println(" * * * * *");
                 System.out.println(" * " + fitxa.getCara1() + " | " + fitxa.getCara2() + " *");
                 System.out.println(" * * * * *");
-            } else {
+            } else if (fitxa.getCaraCreu() == 1){
                     System.out.println("   * * * ");
                     System.out.println("   * " + fitxa.getCara1() + " *");
                     System.out.println("   * - *");
                     System.out.println("   * " + fitxa.getCara2() + " *");
                     System.out.println("   * * * ");
+            } else if (fitxa.getCaraCreu() == 2){
+                System.out.println("   * * * ");
+                System.out.println("   * " + fitxa.getCara2() + " *");
+                System.out.println("   * - *");
+                System.out.println("   * " + fitxa.getCara1() + " *");
+                System.out.println("   * * * ");
             }
 
         }

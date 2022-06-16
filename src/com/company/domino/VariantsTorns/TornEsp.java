@@ -42,7 +42,7 @@ public class TornEsp extends Torn {
                         fitxaTriada = Input.triaFitxa(player.getFitxesJug(), player, tirades);
                     }
 
-                    tablero.getFitxesTab().add(player.getFitxesJug().get(fitxaTriada));
+                    colocarFitxa(tablero, player.getFitxesJug().get(fitxaTriada));
                     newGame.posarExtremsTablero(tablero, player, fitxaTriada);
 
                 } else if (!newGame.teFitxesJugables(player.getFitxesJug())){
@@ -61,5 +61,32 @@ public class TornEsp extends Torn {
         seguentTorn(tornInicial, newGame.numeroJugadors(jugadors));
     }
 
+    public void colocarFitxa (Tablero tablero, Fitxa fitxaTriada){
+        if (fitxaTriada.getCara1() == tablero.getExtrem1() || fitxaTriada.getCara2() == tablero.getExtrem1()){
+            Fitxa aux = tablero.getFitxesTab().get(tablero.getFitxesTab().size()-1);
+            tablero.getFitxesTab().add(0, aux);
+            tablero.getFitxesTab().remove(tablero.getFitxesTab().size()-1);
+
+            if (fitxaTriada.getCara1() == tablero.getExtrem1()){
+                fitxaTriada.setCaraCreu(2);
+            }
+
+            if (fitxaTriada.getCara2() == tablero.getExtrem1()){
+                fitxaTriada.setCaraCreu(1);
+            }
+        }
+
+        if (fitxaTriada.getCara1() == tablero.getExtrem2() || fitxaTriada.getCara2() == tablero.getExtrem2()){
+            tablero.getFitxesTab().add(fitxaTriada);
+
+            if (fitxaTriada.getCara1() == tablero.getExtrem2()){
+                fitxaTriada.setCaraCreu(2);
+            }
+
+            if (fitxaTriada.getCara2() == tablero.getExtrem2()){
+                fitxaTriada.setCaraCreu(1);
+            }
+        }
+    }
 
 }
