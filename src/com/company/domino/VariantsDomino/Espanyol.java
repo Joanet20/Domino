@@ -74,46 +74,54 @@ public class Espanyol extends Domino {
                 begin = true;
             } else {
                 if (modalitat == 0){
-                    if (!newGame.teFitxes(this.jugadors) || newGame.isCierre(this.jugadors, newGame)){
-
-                        if (newGame.isCierre(this.jugadors, newGame)){
-                            this.jugadors.get(newGame.jugadorGuanyadorCierre(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
-                        } else {
-                            this.jugadors.get(newGame.wiinerHand(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
-                        }
-
-                        tirades = 0;
-                        newGame.eliminarFitxes(this.jugadors);
-                        newGame.crearFitxes(newGame.getFitxesJoc());
-                        newGame.assignarFitxesJug(newGame.getFitxesJoc(), this.jugadors, 7);
-                        borrarTablero(tablero);
-                    }
-
-                    Output.printPuntuacio(this.jugadors, modalitat);
-                    torn.torn(this.jugadors, tornInicial, newGame, tablero, tirades);
-                    tornInicial = torn.seguentTorn(tornInicial, this.jugadors.size());
-                    tirades++;
-
+                    modalitatIndividual(newGame, tirades, tablero, modalitat, torn, tornInicial);
                 } else if (modalitat == 1) {
-                    if (!newGame.teFitxes(this.jugadors)){
-                        int parellaGuanyadora = this.jugadors.get(newGame.wiinerHand(this.jugadors)).getIdParella();
-                        for (Jugador player : this.jugadors){
-                            if (player.getIdParella() == parellaGuanyadora){
-                                this.jugadors.get(newGame.wiinerHand(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
-                            }
-                        }
-                        tirades = 0;
-                        borrarTablero(tablero);
-                        newGame.eliminarFitxes(this.jugadors);
-                    }
-
-                    torn.torn(this.jugadors, tornInicial, newGame, tablero, tirades);
-                    tornInicial = torn.seguentTorn(tornInicial, this.jugadors.size());
-                    tirades++;
+                    modalitatParelles(newGame, tirades, tablero, modalitat, torn, tornInicial);
                 }
             }
         }
 
         Output.hasGuanyat(this.jugadors.get(tornInicial));
+    }
+
+    public void modalitatIndividual (Domino newGame, int tirades, Tablero tablero, int modalitat, Torn torn, int tornInicial){
+        if (!newGame.teFitxes(this.jugadors) || newGame.isCierre(this.jugadors, newGame)){
+
+            if (newGame.isCierre(this.jugadors, newGame)){
+                this.jugadors.get(newGame.jugadorGuanyadorCierre(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
+            } else {
+                this.jugadors.get(newGame.wiinerHand(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
+            }
+
+            tirades = 0;
+            newGame.eliminarFitxes(this.jugadors);
+            newGame.crearFitxes(newGame.getFitxesJoc());
+            newGame.assignarFitxesJug(newGame.getFitxesJoc(), this.jugadors, 7);
+            borrarTablero(tablero);
+        }
+
+        Output.printPuntuacio(this.jugadors, modalitat);
+        torn.torn(this.jugadors, tornInicial, newGame, tablero, tirades);
+        tornInicial = torn.seguentTorn(tornInicial, this.jugadors.size());
+        tirades++;
+    }
+
+
+    public void modalitatParelles (Domino newGame, int tirades, Tablero tablero, int modalitat, Torn torn, int tornInicial){
+        if (!newGame.teFitxes(this.jugadors)){
+            int parellaGuanyadora = this.jugadors.get(newGame.wiinerHand(this.jugadors)).getIdParella();
+            for (Jugador player : this.jugadors){
+                if (player.getIdParella() == parellaGuanyadora){
+                    this.jugadors.get(newGame.wiinerHand(this.jugadors)).setPuntucaioJug(newGame.calcularPuntuacio(this.jugadors));
+                }
+            }
+            tirades = 0;
+            borrarTablero(tablero);
+            newGame.eliminarFitxes(this.jugadors);
+        }
+
+        torn.torn(this.jugadors, tornInicial, newGame, tablero, tirades);
+        tornInicial = torn.seguentTorn(tornInicial, this.jugadors.size());
+        tirades++;
     }
 }
