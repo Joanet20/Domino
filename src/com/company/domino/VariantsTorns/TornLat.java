@@ -30,18 +30,9 @@ public class TornLat extends Torn {
                 int fitxaTriada = Input.triaFitxa(player.getFitxesJug(), player, tirades);
 
                 if (tirades == 0){
-                    tablero.getFitxesTab().add(player.getFitxesJug().get(fitxaTriada));
-                    tablero.setExtrem1(player.getFitxesJug().get(fitxaTriada).getCara1());
-                    tablero.setExtrem2(player.getFitxesJug().get(fitxaTriada).getCara2());
-                    player.getFitxesJug().remove(fitxaTriada);
+                    colocarPrimeraTirada(tablero, player, fitxaTriada);
                 } else if (newGame.teFitxesJugables(player.getFitxesJug()) && tirades > 0){
-                    while (!player.getFitxesJug().get(fitxaTriada).isJugable()){
-                        Output.fitxaNoJugable();
-                        fitxaTriada = Input.triaFitxa(player.getFitxesJug(), player, tirades);
-                    }
-
-                    tablero.getFitxesTab().add(player.getFitxesJug().get(fitxaTriada));
-                    newGame.posarExtremsTablero(tablero, player, fitxaTriada);
+                    comprobarJugableSeguentsTirades(player, fitxaTriada, tablero, newGame, tirades);
 
                 } else if (!newGame.teFitxesJugables(player.getFitxesJug())){
                     Output.pasarTorn(player);
@@ -52,5 +43,22 @@ public class TornLat extends Torn {
             }
         }
         seguentTorn(tornInicial, newGame.numeroJugadors(jugadors));
+    }
+
+    public void colocarPrimeraTirada (Tablero tablero, Jugador player, int fitxaTriada){
+        tablero.getFitxesTab().add(player.getFitxesJug().get(fitxaTriada));
+        tablero.setExtrem1(player.getFitxesJug().get(fitxaTriada).getCara1());
+        tablero.setExtrem2(player.getFitxesJug().get(fitxaTriada).getCara2());
+        player.getFitxesJug().remove(fitxaTriada);
+    }
+
+    public void comprobarJugableSeguentsTirades (Jugador player, int fitxaTriada, Tablero tablero, Domino newGame, int tirades){
+        while (!player.getFitxesJug().get(fitxaTriada).isJugable()){
+            Output.fitxaNoJugable();
+            fitxaTriada = Input.triaFitxa(player.getFitxesJug(), player, tirades);
+        }
+
+        tablero.getFitxesTab().add(player.getFitxesJug().get(fitxaTriada));
+        newGame.posarExtremsTablero(tablero, player, fitxaTriada);
     }
 }
